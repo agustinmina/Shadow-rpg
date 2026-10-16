@@ -1,0 +1,18 @@
+{
+  "name": "com.gutylog.shadowsystem",
+  "displayName": "Shadow System RPG",
+  "version": "1.0.0",
+  "description": "Sistema RPG de Misiones Diarias",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "GUTY-LOG",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^13.0.0"
+  }
+}
