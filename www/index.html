@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SHADOW SYSTEM - RPG Life</title>
+  <title>SHADOW SYSTEM v2.0 - RPG Life</title>
   <style>
     :root {
-      --bg-dark: #060913;
-      --panel-bg: rgba(12, 19, 38, 0.88);
+      --bg-dark: #05070e;
+      --panel-bg: rgba(10, 16, 32, 0.9);
       --neon-blue: #00e5ff;
       --neon-purple: #9d4edd;
       --sao-gold: #ffb703;
       --hp-green: #00f5d4;
       --hp-yellow: #fee440;
       --hp-red: #ff2a5f;
-      --text-main: #e2f1ff;
+      --text-main: #e8f3ff;
       --text-muted: #7b93b6;
-      --border-glow: 0 0 12px rgba(0, 229, 255, 0.45);
+      --border-glow: 0 0 14px rgba(0, 229, 255, 0.45);
     }
 
     * {
@@ -31,19 +31,19 @@
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 50% 15%, rgba(0, 229, 255, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
-        linear-gradient(180deg, #05070f 0%, #0a1124 100%);
+        radial-gradient(circle at 50% 10%, rgba(0, 229, 255, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(157, 78, 221, 0.18) 0%, transparent 50%),
+        linear-gradient(180deg, #04060c 0%, #091022 100%);
       color: var(--text-main);
       min-height: 100vh;
-      padding-bottom: 85px;
+      padding-bottom: 88px;
       overflow-x: hidden;
     }
 
     /* CABECERA DEL SISTEMA */
     .sys-header {
-      background: rgba(6, 11, 25, 0.95);
-      border-bottom: 1px solid rgba(0, 229, 255, 0.4);
+      background: rgba(5, 9, 20, 0.96);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.45);
       box-shadow: var(--border-glow);
       padding: 12px 16px;
       position: sticky;
@@ -58,15 +58,15 @@
       background: linear-gradient(135deg, #00e5ff, #7209b7);
       color: #fff;
       font-weight: 900;
-      font-size: 1.2rem;
-      width: 42px;
-      height: 42px;
+      font-size: 1.25rem;
+      width: 44px;
+      height: 44px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 12px rgba(0, 229, 255, 0.7);
-      border: 1px solid #fff;
+      box-shadow: 0 0 14px rgba(0, 229, 255, 0.75);
+      border: 1.5px solid #fff;
     }
 
     .player-top-info {
@@ -78,9 +78,9 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
+      font-weight: 900;
+      font-size: 1.02rem;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
     }
 
@@ -88,11 +88,12 @@
       font-size: 0.72rem;
       color: var(--neon-blue);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
+      font-weight: 700;
     }
 
     .gold-pill {
-      background: rgba(255, 183, 3, 0.15);
+      background: rgba(255, 183, 3, 0.14);
       border: 1px solid var(--sao-gold);
       color: var(--sao-gold);
       padding: 6px 12px;
@@ -104,7 +105,7 @@
       gap: 5px;
     }
 
-    /* CONTENEDORES DE VISTA */
+    /* SECCIONES */
     .view-section {
       display: none;
       padding: 14px;
@@ -122,20 +123,20 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* TARJETA HOLOGRÁFICA ESTILO SOLO LEVELING */
+    /* TARJETAS HOLOGRÁFICAS */
     .sys-card {
       background: var(--panel-bg);
-      border: 1px solid rgba(0, 229, 255, 0.35);
+      border: 1px solid rgba(0, 229, 255, 0.38);
       border-radius: 12px;
-      padding: 15px;
+      padding: 14px;
       margin-bottom: 14px;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 229, 255, 0.05);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.7), inset 0 0 18px rgba(0, 229, 255, 0.06);
       position: relative;
       overflow: hidden;
     }
 
     .sys-card-title {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--neon-blue);
@@ -143,159 +144,157 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.22);
       padding-bottom: 6px;
       font-weight: 800;
     }
 
-    /* CÁMARA DEL AVATAR DE CUERPO COMPLETO */
+    /* CÁMARA DE AVATAR ANIME DE ALTA DEFINICIÓN */
     .avatar-stage {
-      height: 310px;
-      background: radial-gradient(circle at 50% 65%, rgba(0, 229, 255, 0.18) 0%, rgba(10, 15, 32, 0.95) 75%);
+      height: 365px;
+      background: 
+        radial-gradient(circle at 50% 45%, rgba(0, 229, 255, 0.22) 0%, rgba(157, 78, 221, 0.16) 45%, rgba(5, 8, 18, 0.98) 85%);
       border-radius: 10px;
-      border: 1px solid rgba(0, 229, 255, 0.3);
+      border: 1.5px solid rgba(0, 229, 255, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
       margin-bottom: 12px;
+      box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.9);
     }
 
-    /* AURAS ANIMADAS */
-    .aura-effect {
+    /* CANVAS DE PARTÍCULAS DE SOMBRA Y RELÁMPAGOS */
+    #fx-canvas {
       position: absolute;
-      width: 220px;
-      height: 260px;
-      border-radius: 50%;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      opacity: 0;
-      transition: 0.4s;
+      z-index: 8;
     }
 
-    .aura-blue {
-      opacity: 1;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.35) 0%, transparent 70%);
-      filter: blur(12px);
-      animation: pulseAura 2.2s infinite alternate;
+    /* HUD DECORATIVO TIPO SOLO LEVELING EN LAS ESQUINAS */
+    .hud-bars-top {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 9;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-end;
     }
-
-    .aura-monarch {
-      opacity: 1;
-      background: radial-gradient(circle, rgba(157, 78, 221, 0.55) 0%, rgba(0, 229, 255, 0.25) 50%, transparent 75%);
-      filter: blur(14px);
-      animation: pulseAura 1.5s infinite alternate;
+    .hud-mini-bar {
+      width: 75px;
+      height: 5px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(0,229,255,0.6);
+      overflow: hidden;
     }
-
-    @keyframes pulseAura {
-      0% { transform: scale(0.92); opacity: 0.7; }
-      100% { transform: scale(1.08); opacity: 1; }
+    .hud-mini-bar > div {
+      height: 100%;
+      background: var(--neon-blue);
+      box-shadow: 0 0 6px var(--neon-blue);
     }
 
     .avatar-svg {
-      width: 240px;
-      height: 290px;
+      width: 300px;
+      height: 360px;
       z-index: 5;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,0.85));
-      animation: floatHero 3.2s ease-in-out infinite;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.9));
+      animation: breatheHero 3.6s ease-in-out infinite;
     }
 
-    @keyframes floatHero {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+    .custom-art-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 4;
+      display: none;
+    }
+
+    @keyframes breatheHero {
+      0%, 100% { transform: translateY(2px) scale(1); }
+      50% { transform: translateY(-4px) scale(1.015); }
     }
 
     .stage-overlay-btn {
       position: absolute;
       bottom: 10px;
       right: 10px;
-      background: rgba(0, 229, 255, 0.18);
+      background: rgba(6, 12, 28, 0.85);
       border: 1px solid var(--neon-blue);
       color: #fff;
-      padding: 6px 11px;
+      padding: 7px 12px;
       border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      z-index: 10;
+      font-size: 0.74rem;
+      font-weight: 800;
+      z-index: 12;
       cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
     }
 
     .streak-badge {
       position: absolute;
       top: 10px;
       left: 10px;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(5, 8, 18, 0.82);
       border: 1px solid var(--sao-gold);
       color: var(--sao-gold);
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 800;
-      z-index: 10;
+      z-index: 12;
     }
 
-    /* BARRAS ESTILO SAO */
-    .bar-group {
-      margin-bottom: 10px;
-    }
-
+    /* BARRAS SAO / SISTEMA */
+    .bar-group { margin-bottom: 10px; }
     .bar-label {
       display: flex;
       justify-content: space-between;
-      font-size: 0.76rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 800;
       margin-bottom: 4px;
     }
-
     .bar-track {
       height: 12px;
       background: rgba(255, 255, 255, 0.08);
       border-radius: 4px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       transform: skewX(-15deg);
     }
-
     .bar-fill {
       height: 100%;
       width: 50%;
-      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s;
+      transition: width 0.4s ease, background-color 0.3s;
     }
-
     .xp-fill {
-      background: linear-gradient(90deg, #0077b6, #00e5ff);
+      background: linear-gradient(90deg, #7209b7, #00e5ff);
       box-shadow: 0 0 10px #00e5ff;
     }
 
-    /* ESTADÍSTICAS DEL CAZADOR */
+    /* ESTADÍSTICAS */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
-
     .stat-box {
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(0, 229, 255, 0.2);
+      border: 1px solid rgba(0, 229, 255, 0.22);
       border-radius: 8px;
       padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .stat-name {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .stat-val {
-      font-size: 1.15rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
+    .stat-name { font-size: 0.74rem; color: var(--text-muted); font-weight: 700; }
+    .stat-val { font-size: 1.15rem; font-weight: 900; color: #fff; }
     .stat-add-btn {
       background: var(--neon-blue);
       color: #000;
@@ -309,31 +308,46 @@
       box-shadow: 0 0 8px var(--neon-blue);
     }
 
-    /* MISIONES Y GENERADOR */
+    /* TARJETA ESPECIAL DE CARRERA MATUTINA 40 MIN */
+    .run-hero-card {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(157, 78, 221, 0.24));
+      border: 1.5px solid var(--neon-blue);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
+    }
+
+    .run-timer-display {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--hp-green);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 1px;
+    }
+
+    /* MISIONES */
     .action-bar {
       display: flex;
       gap: 8px;
       margin-bottom: 14px;
     }
-
     .btn-sys {
       flex: 1;
-      background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(114, 9, 183, 0.35));
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.22), rgba(114, 9, 183, 0.38));
       border: 1px solid var(--neon-blue);
       color: #fff;
       padding: 11px 12px;
       border-radius: 8px;
       font-weight: 800;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
     }
-
     .btn-sys.gold {
       border-color: var(--sao-gold);
       background: linear-gradient(135deg, rgba(255, 183, 3, 0.25), rgba(251, 133, 0, 0.3));
@@ -341,7 +355,7 @@
     }
 
     .quest-item {
-      background: rgba(16, 26, 50, 0.9);
+      background: rgba(14, 23, 46, 0.92);
       border-left: 4px solid var(--neon-blue);
       border-top: 1px solid rgba(255,255,255,0.08);
       border-right: 1px solid rgba(255,255,255,0.08);
@@ -353,19 +367,12 @@
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      transition: 0.2s;
     }
-
     .quest-item.done {
-      opacity: 0.48;
+      opacity: 0.45;
       border-left-color: var(--hp-green);
-      background: rgba(10, 20, 35, 0.5);
     }
-
-    .quest-info {
-      flex: 1;
-    }
-
+    .quest-info { flex: 1; }
     .quest-tags {
       display: flex;
       gap: 6px;
@@ -374,44 +381,25 @@
       font-weight: 800;
       text-transform: uppercase;
     }
-
     .tag-cat {
       background: rgba(0, 229, 255, 0.15);
       color: var(--neon-blue);
       padding: 2px 7px;
       border-radius: 4px;
     }
-
-    .tag-reward {
-      color: var(--sao-gold);
-    }
-
-    .quest-title {
-      font-weight: 700;
-      font-size: 0.92rem;
-      line-height: 1.3;
-    }
-
-    .quest-actions {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .tag-reward { color: var(--sao-gold); }
+    .quest-title { font-weight: 700; font-size: 0.9rem; line-height: 1.3; }
+    .quest-actions { display: flex; align-items: center; gap: 6px; }
     .btn-icon {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #fff;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-
     .btn-complete {
       background: rgba(0, 245, 212, 0.18);
       border: 1px solid var(--hp-green);
@@ -419,11 +407,10 @@
       padding: 8px 12px;
       border-radius: 8px;
       font-weight: 800;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       cursor: pointer;
     }
 
-    /* HIDRATACIÓN ESPECIAL */
     .water-tracker {
       display: flex;
       align-items: center;
@@ -435,19 +422,11 @@
       margin-bottom: 12px;
     }
 
-    .water-drops {
-      display: flex;
-      gap: 4px;
-      font-size: 1.1rem;
-    }
-
-    /* ARMERÍA / EQUIPO */
     .gear-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
-
     .gear-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(0, 229, 255, 0.25);
@@ -459,31 +438,21 @@
       justify-content: space-between;
       gap: 8px;
     }
-
     .gear-card.equipped {
       border-color: var(--hp-green);
       box-shadow: 0 0 12px rgba(0, 245, 212, 0.25);
     }
+    .gear-card.locked { opacity: 0.5; }
 
-    .gear-card.locked {
-      opacity: 0.5;
-      border-color: rgba(255,255,255,0.1);
-    }
-
-    /* FORMULARIOS Y CONTROLES DE ADN */
-    .form-group {
-      margin-bottom: 12px;
-    }
-
+    .form-group { margin-bottom: 12px; }
     .form-group label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       margin-bottom: 5px;
       font-weight: 700;
       text-transform: uppercase;
     }
-
     .sys-input, .sys-select {
       width: 100%;
       background: rgba(5, 10, 22, 0.9);
@@ -493,97 +462,58 @@
       border-radius: 8px;
       font-size: 0.9rem;
     }
-
-    .color-row {
-      display: flex;
-      gap: 10px;
-    }
+    .color-row { display: flex; gap: 10px; }
 
     /* NAVEGACIÓN INFERIOR */
     .bottom-nav {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(5, 9, 20, 0.96);
+      bottom: 0; left: 0; right: 0;
+      background: rgba(5, 9, 20, 0.97);
       border-top: 1px solid rgba(0, 229, 255, 0.35);
       display: flex;
       justify-content: space-around;
       padding: 8px 0 12px;
       z-index: 200;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.8);
     }
-
     .nav-item {
-      background: none;
-      border: none;
+      background: none; border: none;
       color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      cursor: pointer;
-      flex: 1;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 4px; font-size: 0.7rem; font-weight: 700;
+      cursor: pointer; flex: 1;
     }
-
     .nav-item.active {
       color: var(--neon-blue);
       text-shadow: 0 0 8px var(--neon-blue);
     }
+    .nav-icon { font-size: 1.25rem; }
 
-    .nav-icon {
-      font-size: 1.25rem;
-    }
-
-    /* MODAL DEL SISTEMA */
     .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.82);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 300;
-      padding: 18px;
+      position: fixed; inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none; align-items: center; justify-content: center;
+      z-index: 300; padding: 18px;
     }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
+    .modal-backdrop.open { display: flex; }
     .sys-modal {
       background: #0a1228;
       border: 2px solid var(--neon-blue);
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
       border-radius: 12px;
-      width: 100%;
-      max-width: 420px;
-      padding: 18px;
+      width: 100%; max-width: 420px; padding: 18px;
     }
 
-    /* NOTIFICACIÓN FLOTANTE LEVEL UP */
     .sys-toast {
       position: fixed;
-      top: 75px;
-      left: 50%;
+      top: 75px; left: 50%;
       transform: translateX(-50%) translateY(-20px);
       background: rgba(8, 16, 36, 0.96);
       border: 2px solid var(--neon-blue);
       box-shadow: 0 0 25px rgba(0, 229, 255, 0.7);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 0.88rem;
-      z-index: 400;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s;
-      text-align: center;
+      color: #fff; padding: 12px 20px;
+      border-radius: 10px; font-weight: 800; font-size: 0.86rem;
+      z-index: 400; opacity: 0; pointer-events: none;
+      transition: 0.3s; text-align: center;
     }
-
     .sys-toast.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
@@ -600,113 +530,137 @@
         <span id="ui-name">GUTY</span>
         <span style="color:var(--neon-blue)">NV. <span id="ui-level">1</span></span>
       </div>
-      <div class="player-title" id="ui-title">Ronin Novato</div>
+      <div class="player-title" id="ui-title">Cazador Sombra</div>
     </div>
     <div class="gold-pill">
       🪙 <span id="ui-gold">100</span> Col
     </div>
   </header>
 
-  <!-- NOTIFICACIÓN DEL SISTEMA -->
   <div id="sys-toast" class="sys-toast">¡HAS SUBIDO DE NIVEL!</div>
 
-  <!-- ================= PESTAÑA 1: CAZADOR (AVATAR + STATS) ================= -->
+  <!-- ================= PESTAÑA 1: CAZADOR ================= -->
   <section id="view-hunter" class="view-section active">
     <div class="sys-card">
       <div class="sys-card-title">
         <span>ESTADO DEL JUGADOR</span>
-        <span id="ui-class-label">ESPADACHÍN SOMBRA</span>
+        <span id="ui-class-label">MONARCA ESPADACHÍN</span>
       </div>
 
-      <!-- ESCENARIO DEL AVATAR 2D DE CUERPO COMPLETO -->
+      <!-- CÁMARA DEL AVATAR ANIME / MANHWA -->
       <div class="avatar-stage">
-        <div class="streak-badge">🔥 Racha: <span id="ui-streak">0</span> días</div>
-        <div id="avatar-aura" class="aura-effect"></div>
+        <div class="streak-badge">🔥 Racha: <span id="ui-streak">1</span> días</div>
+        
+        <!-- HUD Decorativo idéntico a la imagen de referencia -->
+        <div class="hud-bars-top">
+          <div class="hud-mini-bar"><div style="width:85%;"></div></div>
+          <div class="hud-mini-bar" style="width:55px;"><div style="width:70%; background:#9d4edd;"></div></div>
+        </div>
 
-        <!-- PERSONAJE ANIME/SAMURAI VECTORIAL DINÁMICO -->
-        <svg class="avatar-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- Imagen personalizada opcional si sube el arte anime directo -->
+        <img id="custom-art-preview" class="custom-art-img" alt="Avatar Anime">
+
+        <!-- AVATAR ANIME CEL-SHADED ESTILO SOLO LEVELING / KIRITO -->
+        <svg id="main-avatar-svg" class="avatar-svg" viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="bladeGlow" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="armorDark" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1e2738"/>
+              <stop offset="50%" stop-color="#0f1522"/>
+              <stop offset="100%" stop-color="#070a12"/>
+            </linearGradient>
+            <linearGradient id="armorMetal" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#3a4b6e"/>
+              <stop offset="50%" stop-color="#1b2436"/>
+              <stop offset="100%" stop-color="#0d121c"/>
+            </linearGradient>
+            <linearGradient id="runeGlow" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#00e5ff"/>
-              <stop offset="100%" stop-color="#0077b6"/>
+              <stop offset="100%" stop-color="#7209b7"/>
             </linearGradient>
-            <linearGradient id="darkRepulsor" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#80ffdb"/>
-              <stop offset="100%" stop-color="#00b4d8"/>
-            </linearGradient>
-            <linearGradient id="shadowArmorGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#240046"/>
-              <stop offset="100%" stop-color="#10002b"/>
-            </linearGradient>
+            <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
 
-          <!-- CAPA TRASERA: ESPADAS EN ESPALDA (Dual Blades / Katana) -->
-          <g id="svg-back-weapons"></g>
-
-          <!-- CAPA TRASERA: CAPA DE MONARCA -->
-          <g id="svg-cape"></g>
-
-          <!-- PIERNAS Y BOTAS -->
-          <rect x="78" y="175" width="16" height="55" rx="5" fill="#141a29"/>
-          <rect x="106" y="175" width="16" height="55" rx="5" fill="#141a29"/>
-          <!-- Botas tácticas -->
-          <path d="M75 220 H96 V242 H72 Z" fill="#0b0f19" stroke="#00e5ff" stroke-width="1"/>
-          <path d="M104 220 H125 L128 242 H104 Z" fill="#0b0f19" stroke="#00e5ff" stroke-width="1"/>
-
-          <!-- BRAZOS Y MANOS (Color de piel dinámico) -->
-          <rect id="svg-arm-l" x="56" y="106" width="14" height="56" rx="7" fill="#d9a17c"/>
-          <rect id="svg-arm-r" x="130" y="106" width="14" height="56" rx="7" fill="#d9a17c"/>
-
-          <!-- TORSO / INDUMENTARIA DINÁMICA -->
-          <g id="svg-outfit"></g>
-
-          <!-- ARMA EN MANO DERECHA -->
-          <g id="svg-hand-weapon"></g>
-
-          <!-- CUELLO -->
-          <rect id="svg-neck" x="91" y="82" width="18" height="20" rx="4" fill="#d9a17c"/>
-
-          <!-- CABEZA ESTILO ANIME / MANHWA -->
-          <path id="svg-head" d="M72 48 C72 28, 128 28, 128 48 C128 68, 116 86, 100 90 C84 86, 72 68, 72 48 Z" fill="#d9a17c"/>
-
-          <!-- OREJAS -->
-          <ellipse id="svg-ear-l" cx="71" cy="60" rx="4" ry="8" fill="#d9a17c"/>
-          <ellipse id="svg-ear-r" cx="129" cy="60" rx="4" ry="8" fill="#d9a17c"/>
-
-          <!-- OJOS ESTILO SUNG JIN-WOO / KIRITO -->
-          <g id="svg-eyes">
-            <!-- Blanco del ojo -->
-            <path d="M80 56 L94 58 L92 63 L81 61 Z" fill="#ffffff"/>
-            <path d="M120 56 L106 58 L108 63 L119 61 Z" fill="#ffffff"/>
-            <!-- Iris dinámico -->
-            <circle id="svg-iris-l" cx="88" cy="59.5" r="3" fill="#2b2d42"/>
-            <circle id="svg-iris-r" cx="112" cy="59.5" r="3" fill="#2b2d42"/>
-            <!-- Cejas -->
-            <path id="svg-brow-l" d="M78 52 L95 55" stroke="#1a1a1a" stroke-width="2.8" stroke-linecap="round"/>
-            <path id="svg-brow-r" d="M122 52 L105 55" stroke="#1a1a1a" stroke-width="2.8" stroke-linecap="round"/>
+          <!-- CAPA DESGARRADA DE LAS SOMBRAS (FONDO) -->
+          <g id="svg-cape">
+            <path d="M40 130 Q15 210 5 295 L65 280 L195 285 L255 295 Q240 200 215 130 Z" fill="#0b0e17" opacity="0.92"/>
+            <path d="M30 145 Q10 225 18 310 L85 295 L235 305 Q245 215 220 145 Z" fill="#151c2e" opacity="0.6"/>
           </g>
 
-          <!-- NARIZ Y BOCA -->
-          <path d="M100 62 L98 69 L102 69" stroke="rgba(0,0,0,0.35)" stroke-width="1.6" fill="none"/>
-          <path d="M93 77 Q100 80 107 77" stroke="rgba(0,0,0,0.5)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- ESPADAS CRUZADAS EN LA ESPALDA (SE ACTIVA CON DUAL BLADES) -->
+          <g id="svg-back-weapons"></g>
 
-          <!-- BARBA / BIGOTE OPCIONAL -->
+          <!-- TORSO Y ARMADURA MANHWA DETALLADA -->
+          <g id="svg-outfit"></g>
+
+          <!-- CUELLO CON SOMBRA CEL-SHADING -->
+          <path id="svg-neck" d="M110 102 L150 102 L156 138 L104 138 Z" fill="#c98e6b"/>
+          <!-- Sombra triangular bajo la barbilla (clave del estilo anime) -->
+          <polygon points="110,104 150,104 130,126" fill="rgba(0,0,0,0.42)"/>
+
+          <!-- OREJAS -->
+          <path id="svg-ear-l" d="M88 68 C82 68, 82 88, 91 91 Z" fill="#c98e6b"/>
+          <path id="svg-ear-r" d="M172 68 C178 68, 178 88, 169 91 Z" fill="#c98e6b"/>
+
+          <!-- ROSTRO ANIME AFILADO (PROPORCIÓN SUNG JIN-WOO) -->
+          <path id="svg-head" d="M88 52 C88 26, 172 26, 172 52 L170 78 L152 106 L130 115 L108 106 L90 78 Z" fill="#c98e6b" stroke="#1a120e" stroke-width="1.5"/>
+          <!-- Sombreado lateral del rostro (Cel-shading) -->
+          <path d="M150 35 L170 52 L168 78 L150 105 L130 115 L144 98 L156 74 Z" fill="rgba(0,0,0,0.18)"/>
+
+          <!-- CICATRIZ EN LA MEJILLA (COMO EN LA IMAGEN) -->
+          <g id="svg-scar">
+            <line x1="152" y1="79" x2="159" y2="95" stroke="#3d1e16" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="149" y1="87" x2="162" y2="84" stroke="#3d1e16" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- OJOS CAZADOR AFILADOS -->
+          <g id="svg-eyes">
+            <!-- Esclerótica izquierda -->
+            <polygon points="97,70 120,74 117,80 99,77" fill="#f8f9fa" stroke="#0b0d13" stroke-width="1.5"/>
+            <!-- Esclerótica derecha -->
+            <polygon points="163,70 140,74 143,80 161,77" fill="#f8f9fa" stroke="#0b0d13" stroke-width="1.5"/>
+            <!-- Iris con brillo -->
+            <circle id="svg-iris-l" cx="110" cy="75.5" r="3.5" fill="#00e5ff"/>
+            <circle id="svg-iris-r" cx="150" cy="75.5" r="3.5" fill="#00e5ff"/>
+            <circle cx="109" cy="74.5" r="1.2" fill="#fff"/>
+            <circle cx="149" cy="74.5" r="1.2" fill="#fff"/>
+            <!-- Cejas gruesas en ángulo agresivo -->
+            <polygon id="svg-brow-l" points="93,64 123,71 122,74 92,68" fill="#11131a"/>
+            <polygon id="svg-brow-r" points="167,64 137,71 138,74 168,68" fill="#11131a"/>
+          </g>
+
+          <!-- NARIZ ANIME CON SOMBRA Y BOCA FIRME -->
+          <polygon points="130,74 126,90 131,91" fill="rgba(0,0,0,0.28)"/>
+          <line x1="129" y1="73" x2="126" y2="90" stroke="#2b1912" stroke-width="1.5"/>
+          <path d="M120 99 L132 98 L141 100" stroke="#2b1912" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M126 103 L134 103" stroke="rgba(0,0,0,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- BARBA / ACCESORIOS -->
           <g id="svg-beard"></g>
-
-          <!-- LENTES / MÁSCARA NINJA OPCIONAL -->
           <g id="svg-accessory"></g>
 
-          <!-- CABELLO DINÁMICO -->
+          <!-- CABELLO ANIME MULTICAPA CON MECHONES Y BRILLOS -->
           <g id="svg-hair"></g>
+
+          <!-- BRAZO EN PRIMER PLANO EMPUÑANDO LA ESPADA CON RELÁMPAGOS (POSE DE LA IMAGEN) -->
+          <g id="svg-foreground-weapon"></g>
         </svg>
 
-        <button class="stage-overlay-btn" onclick="switchTab('dna')">📷 Escanear mi Foto</button>
+        <!-- Canvas de partículas oscuras y relámpagos en tiempo real -->
+        <canvas id="fx-canvas" width="320" height="365"></canvas>
+
+        <button class="stage-overlay-btn" onclick="switchTab('dna')">⚡ Personalizar / Subir Arte</button>
       </div>
 
-      <!-- BARRA DE VIDA (HP SAO) -->
+      <!-- BARRAS DE VIDA Y EXP -->
       <div class="bar-group">
         <div class="bar-label">
-          <span>HP (VIDA DEL CAZADOR)</span>
+          <span>HP (VITALIDAD DEL CAZADOR)</span>
           <span id="ui-hp-text">100 / 100</span>
         </div>
         <div class="bar-track">
@@ -714,10 +668,9 @@
         </div>
       </div>
 
-      <!-- BARRA DE EXPERIENCIA (XP) -->
       <div class="bar-group">
         <div class="bar-label">
-          <span>EXP (PROGRESO DE RANGO)</span>
+          <span>EXP (PROGRESO DE NIVEL)</span>
           <span id="ui-xp-text">0 / 100</span>
         </div>
         <div class="bar-track">
@@ -726,16 +679,16 @@
       </div>
     </div>
 
-    <!-- ATRIBUTOS Y PUNTOS DE HABILIDAD -->
+    <!-- ATRIBUTOS -->
     <div class="sys-card">
       <div class="sys-card-title">
-        <span>ATRIBUTOS REALES</span>
-        <span style="color:var(--sao-gold)">Puntos libres: <span id="ui-stat-points">0</span></span>
+        <span>ESTADÍSTICAS DEL SISTEMA</span>
+        <span style="color:var(--sao-gold)">Puntos: <span id="ui-stat-points">0</span></span>
       </div>
       <div class="stats-grid">
         <div class="stat-box">
           <div>
-            <div class="stat-name">💪 FUERZA (Ejercicio)</div>
+            <div class="stat-name">💪 FUERZA (Running/Físico)</div>
             <div class="stat-val" id="stat-str">10</div>
           </div>
           <button class="stat-add-btn" onclick="spendStat('str')">+</button>
@@ -764,36 +717,50 @@
       </div>
     </div>
 
-    <!-- JEFE SEMANAL / EXTRACCIÓN DE SOMBRAS -->
+    <!-- MAZMORRA SEMANAL -->
     <div class="sys-card">
       <div class="sys-card-title">
-        <span>⚔️ MAZMORRA: <span id="boss-name">IGRIS EL COMANDANTE ROJO</span></span>
+        <span>⚔️ JEFE: <span id="boss-name">IGRIS EL COMANDANTE ROJO</span></span>
         <span id="boss-hp-text" style="color:var(--hp-red)">500 / 500 HP</span>
       </div>
-      <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:8px;">
-        Cada misión diaria que completas le hace daño directo al Jefe. Derrótalo para extraer su sombra y ganar bonos permanentes.
-      </p>
       <div class="bar-track" style="margin-bottom:8px;">
         <div id="boss-hp-bar" class="bar-fill" style="width:100%; background:var(--hp-red);"></div>
       </div>
       <div style="font-size:0.75rem; color:var(--neon-purple); font-weight:700;">
-        Sombras Extraídas: <span id="ui-shadows-count">0</span> (Bono XP activo: +<span id="ui-shadow-bonus">0</span>%)
+        Sombras Extraídas: <span id="ui-shadows-count">0</span> (Bono XP permanente: +<span id="ui-shadow-bonus">0</span>%)
       </div>
     </div>
   </section>
 
-  <!-- ================= PESTAÑA 2: MISIONES DEL SISTEMA ================= -->
+  <!-- ================= PESTAÑA 2: MISIONES ================= -->
   <section id="view-quests" class="view-section">
-    <!-- CONTADOR DE AGUA RÁPIDO -->
+    
+    <!-- MISIÓN PRINCIPAL FIJA: CARRERA MATUTINA 40 MINUTOS -->
+    <div class="run-hero-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div>
+          <span class="tag-cat" style="background:var(--neon-blue); color:#000; font-weight:900; font-size:0.68rem;">MISIÓN PRINCIPAL DIARIA</span>
+          <h3 style="font-size:0.98rem; margin-top:4px;">🏃‍♂️ Carrera Matutina: 40 Minutos</h3>
+          <div style="font-size:0.74rem; color:var(--sao-gold); font-weight:700;">Recompensa: +85 XP | +60 Col | +1 STR y +1 AGI</div>
+        </div>
+        <div class="run-timer-display" id="run-timer-ui">40:00</div>
+      </div>
+      <div class="action-bar" style="margin-bottom:0;">
+        <button class="btn-sys" id="btn-run-timer" onclick="toggleRunTimer()">▶️ Iniciar Cronómetro</button>
+        <button class="btn-complete" id="btn-run-done" onclick="completeMorningRun()">✔ Ya corrí mis 40 min</button>
+      </div>
+    </div>
+
+    <!-- CONTADOR DE AGUA -->
     <div class="water-tracker">
       <div>
         <div style="font-size:0.78rem; font-weight:800; color:var(--neon-blue);">💧 HIDRATACIÓN DIARIA (2L)</div>
-        <div class="water-drops" id="ui-water-cups">⚪⚪⚪⚪⚪⚪⚪⚪</div>
+        <div style="font-size:1.1rem; margin-top:3px;" id="ui-water-cups">⚪⚪⚪⚪⚪⚪⚪⚪</div>
       </div>
       <button class="btn-complete" onclick="drinkWater()">+1 Vaso</button>
     </div>
 
-    <!-- BOTONES DEL SISTEMA -->
+    <!-- BOTONES DEL ORÁCULO -->
     <div class="action-bar">
       <button class="btn-sys" onclick="generateDailyOracleQuests()">⚡ Oráculo del Día</button>
       <button class="btn-sys gold" onclick="openQuestModal()">+ Crear Misión</button>
@@ -801,52 +768,52 @@
 
     <div class="sys-card">
       <div class="sys-card-title">
-        <span>📜 MISIONES ACTIVAS DE HOY</span>
-        <span style="font-size:0.7rem; color:var(--text-muted)">Toca 🎲 para cambiar una</span>
+        <span>📜 MISIONES ROTATIVAS Y PROPIAS</span>
+        <span style="font-size:0.7rem; color:var(--text-muted)">🎲 = Cambiar tarea</span>
       </div>
       <div id="quests-container"></div>
     </div>
   </section>
 
-  <!-- ================= PESTAÑA 3: ARMERÍA Y TIENDA ================= -->
+  <!-- ================= PESTAÑA 3: ARMERÍA ================= -->
   <section id="view-armory" class="view-section">
     <div class="sys-card">
-      <div class="sys-card-title">
-        <span>🧥 INDUMENTARIA (DESBLOQUEO POR NIVEL Y ORO)</span>
-      </div>
+      <div class="sys-card-title"><span>🧥 ARMADURAS DE CAZADOR (POR NIVEL)</span></div>
       <div id="outfits-grid" class="gear-grid"></div>
     </div>
 
     <div class="sys-card">
-      <div class="sys-card-title">
-        <span>🗡️ ARMAS Y ESPADAS (SAO / SOLO LEVELING)</span>
-      </div>
+      <div class="sys-card-title"><span>🗡️ ESPADAS Y DAGAS RUNA</span></div>
       <div id="weapons-grid" class="gear-grid"></div>
     </div>
 
     <div class="sys-card">
-      <div class="sys-card-title">
-        <span>🎁 RECOMPENSAS DE LA VIDA REAL (TIENDA COL)</span>
-      </div>
+      <div class="sys-card-title"><span>🎁 TIENDA DE VIDA REAL (COL)</span></div>
       <div id="rewards-grid" class="gear-grid"></div>
     </div>
   </section>
 
-  <!-- ================= PESTAÑA 4: ADN / ESCÁNER DE FOTO ================= -->
+  <!-- ================= PESTAÑA 4: ADN / FOTO ================= -->
   <section id="view-dna" class="view-section">
     <div class="sys-card">
-      <div class="sys-card-title">
-        <span>🧬 ESCÁNER BIOMÉTRICO DE FOTO A AVATAR</span>
-      </div>
-      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">
-        Sube una selfie tuya. El Sistema analizará tus rasgos (tono de piel, color de cabello y facciones) para reconstruir tu personaje de cuerpo completo en pantalla.
+      <div class="sys-card-title"><span>🖼️ MODO DE VISUALIZACIÓN DEL AVATAR</span></div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">
+        Puedes usar el **Avatar Anime Dinámico** (que cambia de armadura y espada por capas) o subir directamente **tu propia ilustración Anime** (como la imagen que elegiste) con los efectos de partículas y relámpagos animados encima.
       </p>
 
-      <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="scanUserPhoto(event)">
-      <button class="btn-sys" style="width:100%; margin-bottom:14px; padding:14px;" onclick="document.getElementById('photo-upload').click()">
-        📸 SUBIR MI FOTO Y CREAR AVATAR
-      </button>
+      <input type="file" id="art-upload" accept="image/*" style="display:none" onchange="uploadCustomAnimeArt(event)">
+      <div class="action-bar">
+        <button class="btn-sys gold" onclick="document.getElementById('art-upload').click()">🖼️ Subir Ilustración Anime</button>
+        <button class="btn-sys" onclick="clearCustomAnimeArt()">🥷 Usar Avatar Modular</button>
+      </div>
+    </div>
 
+    <div class="sys-card">
+      <div class="sys-card-title"><span>🧬 ESCÁNER DE RASGOS (MODO MODULAR)</span></div>
+      <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="scanUserPhoto(event)">
+      <button class="btn-sys" style="width:100%; margin-bottom:14px;" onclick="document.getElementById('photo-upload').click()">
+        📸 ESCANEAR TONO DE PIEL Y PELO DE MI FOTO
+      </button>
       <canvas id="scanner-canvas" width="120" height="120" style="display:none;"></canvas>
 
       <div class="form-group">
@@ -856,182 +823,148 @@
 
       <div class="color-row">
         <div class="form-group" style="flex:1;">
-          <label>Tono de Piel (Auto/Manual)</label>
-          <input type="color" id="cfg-skin" class="sys-input" style="height:44px; padding:4px;" value="#d9a17c" onchange="updateAvatarDNA()">
+          <label>Piel</label>
+          <input type="color" id="cfg-skin" class="sys-input" style="height:42px; padding:3px;" value="#c98e6b" onchange="updateAvatarDNA()">
         </div>
         <div class="form-group" style="flex:1;">
-          <label>Color de Cabello</label>
-          <input type="color" id="cfg-hair-color" class="sys-input" style="height:44px; padding:4px;" value="#141419" onchange="updateAvatarDNA()">
+          <label>Cabello</label>
+          <input type="color" id="cfg-hair-color" class="sys-input" style="height:42px; padding:3px;" value="#10131a" onchange="updateAvatarDNA()">
         </div>
         <div class="form-group" style="flex:1;">
-          <label>Color de Ojos</label>
-          <input type="color" id="cfg-eye-color" class="sys-input" style="height:44px; padding:4px;" value="#00e5ff" onchange="updateAvatarDNA()">
+          <label>Ojos / Runa</label>
+          <input type="color" id="cfg-eye-color" class="sys-input" style="height:42px; padding:3px;" value="#00e5ff" onchange="updateAvatarDNA()">
         </div>
       </div>
 
       <div class="form-group">
-        <label>Estilo de Cabello Anime / Samurai</label>
+        <label>Corte de Cabello Manhwa</label>
         <select id="cfg-hair-style" class="sys-select" onchange="updateAvatarDNA()">
-          <option value="jinwoo">Sung Jin-Woo (Monarca Despierto)</option>
-          <option value="kirito">Kirito (Espadachín Negro)</option>
-          <option value="samurai">Samurai Coleta Alta (Ronin)</option>
-          <option value="short">Militar / Corto Táctico</option>
+          <option value="shadow_monarch">Monarca Sombra (Mechones en Capas - Imagen)</option>
+          <option value="kirito">Espadachín Negro (Largo Anime)</option>
+          <option value="samurai">Ronin Coleta Alta</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label>Barba / Facciones</label>
+        <label>Barba</label>
         <select id="cfg-beard" class="sys-select" onchange="updateAvatarDNA()">
-          <option value="none">Sin Barba</option>
-          <option value="goatee">Candado / Barba Corta</option>
-          <option value="full">Barba Cerrada</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Accesorio Facial</label>
-        <select id="cfg-acc" class="sys-select" onchange="updateAvatarDNA()">
-          <option value="none">Ninguno</option>
-          <option value="mask">Máscara Ninja Sombra</option>
-          <option value="glasses">Lentes Tácticos</option>
-          <option value="scar">Cicatriz de Cazador</option>
+          <option value="none">Limpio (Estilo Manhwa)</option>
+          <option value="goatee">Candado Fino</option>
+          <option value="full">Barba Sombra</option>
         </select>
       </div>
     </div>
 
-    <!-- COPIA DE SEGURIDAD PARA NO PERDER AÑOS DE PROGRESO -->
     <div class="sys-card">
-      <div class="sys-card-title">
-        <span>💾 RESPALDO DE PARTIDA (MESES / AÑOS)</span>
-      </div>
+      <div class="sys-card-title"><span>💾 RESPALDO PERMANENTE</span></div>
       <div class="action-bar">
-        <button class="btn-sys" onclick="exportSaveData()">⬇️ Descargar Respaldo</button>
-        <button class="btn-sys gold" onclick="document.getElementById('import-file').click()">⬆️ Restaurar Partida</button>
+        <button class="btn-sys" onclick="exportSaveData()">⬇️ Exportar Partida</button>
+        <button class="btn-sys gold" onclick="document.getElementById('import-file').click()">⬆️ Importar Partida</button>
         <input type="file" id="import-file" accept=".json" style="display:none" onchange="importSaveData(event)">
       </div>
     </div>
   </section>
 
-  <!-- MODAL PARA CREAR MISIÓN PERSONALIZADA -->
+  <!-- MODAL NUEVA MISIÓN -->
   <div id="quest-modal" class="modal-backdrop">
     <div class="sys-modal">
-      <div class="sys-card-title">
-        <span>➕ NUEVA MISIÓN PERSONALIZADA</span>
+      <div class="sys-card-title"><span>➕ CREAR MISIÓN PERSONALIZADA</span></div>
+      <div class="form-group">
+        <label>Título de la Misión</label>
+        <input type="text" id="new-q-title" class="sys-input" placeholder="Ej. Correr 40 min, Leer Proverbios...">
       </div>
       <div class="form-group">
-        <label>Descripción de la Misión</label>
-        <input type="text" id="new-q-title" class="sys-input" placeholder="Ej. Leer Salmo 23, Lavar patio, Programar 1h...">
-      </div>
-      <div class="form-group">
-        <label>Área / Atributo que Sube</label>
+        <label>Atributo que fortalece</label>
         <select id="new-q-cat" class="sys-select">
-          <option value="spr">📖 Estudio Bíblico / Espíritu (+SPR)</option>
-          <option value="str">💪 Ejercicio / Salud (+STR)</option>
-          <option value="agi">🏠 Casa / Orden (+AGI)</option>
-          <option value="int">💼 Trabajo / Proyectos (+INT)</option>
+          <option value="str">💪 Fuerza / Ejercicio (+STR)</option>
+          <option value="spr">📖 Espíritu / Estudio Bíblico (+SPR)</option>
+          <option value="agi">🏠 Agilidad / Casa y Orden (+AGI)</option>
+          <option value="int">💼 Técnica / Trabajo (+INT)</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Dificultad (Rango de Misión)</label>
+        <label>Rango de Dificultad</label>
         <select id="new-q-diff" class="sys-select">
-          <option value="E">Rango E - Rápida (+25 XP / +15 Col)</option>
-          <option value="D">Rango D - Normal (+45 XP / +30 Col)</option>
-          <option value="C">Rango C - Media (+75 XP / +55 Col)</option>
-          <option value="B">Rango B - Pesada (+120 XP / +90 Col)</option>
-          <option value="A">Rango A - Épica (+200 XP / +150 Col)</option>
+          <option value="E">Rango E (+25 XP / +15 Col)</option>
+          <option value="D">Rango D (+45 XP / +30 Col)</option>
+          <option value="C">Rango C (+75 XP / +55 Col)</option>
+          <option value="B">Rango B (+120 XP / +90 Col)</option>
+          <option value="A">Rango A (+200 XP / +150 Col)</option>
         </select>
       </div>
-      <div class="action-bar" style="margin-top:16px; margin-bottom:0;">
-        <button class="btn-sys" style="border-color:#ff2a5f; background:rgba(255,42,95,0.2);" onclick="closeQuestModal()">Cancelar</button>
-        <button class="btn-sys" onclick="saveCustomQuest()">Guardar Misión</button>
+      <div class="action-bar" style="margin-top:14px; margin-bottom:0;">
+        <button class="btn-sys" style="border-color:#ff2a5f;" onclick="closeQuestModal()">Cancelar</button>
+        <button class="btn-sys" onclick="saveCustomQuest()">Guardar</button>
       </div>
     </div>
   </div>
 
-  <!-- BARRA DE NAVEGACIÓN INFERIOR -->
+  <!-- BARRA INFERIOR -->
   <nav class="bottom-nav">
     <button class="nav-item active" id="nav-hunter" onclick="switchTab('hunter')">
-      <span class="nav-icon">🥷</span>
-      <span>Cazador</span>
+      <span class="nav-icon">🥷</span><span>Cazador</span>
     </button>
     <button class="nav-item" id="nav-quests" onclick="switchTab('quests')">
-      <span class="nav-icon">📜</span>
-      <span>Misiones</span>
+      <span class="nav-icon">📜</span><span>Misiones</span>
     </button>
     <button class="nav-item" id="nav-armory" onclick="switchTab('armory')">
-      <span class="nav-icon">🗡️</span>
-      <span>Armería</span>
+      <span class="nav-icon">🗡️</span><span>Armería</span>
     </button>
     <button class="nav-item" id="nav-dna" onclick="switchTab('dna')">
-      <span class="nav-icon">🧬</span>
-      <span>ADN / Foto</span>
+      <span class="nav-icon">🧬</span><span>Avatar / ADN</span>
     </button>
   </nav>
 
   <script>
-    /* =========================================================================
-       BANCO INTELIGENTE DEL ORÁCULO (MÁS DE 35 MISIONES ROTATIVAS POR CATEGORÍA)
-       ========================================================================= */
+    /* BANCO DE MISIONES CON RUNNING Y EJERCICIO INTEGRADO */
     const ORACLE_POOL = {
-      spr: [
-        { title: "Leer un capítulo de Proverbios y meditar su enseñanza", xp: 40, gold: 25 },
-        { title: "Leer un Salmo en voz alta y dedicar 5 min a orar", xp: 35, gold: 20 },
-        { title: "Estudiar un pasaje de los Evangelios y anotar 1 aplicación diaria", xp: 45, gold: 30 },
-        { title: "Agradecer a Dios por 3 cosas específicas al despertar", xp: 25, gold: 15 },
-        { title: "Memorizar un versículo bíblico clave durante el día", xp: 55, gold: 40 },
-        { title: "Leer la historia de un personaje bíblico (David, Daniel, Pablo)", xp: 50, gold: 35 }
-      ],
       str: [
-        { title: "Salir a caminar o trotar 20 minutos por la mañana", xp: 50, gold: 35 },
-        { title: "Hacer 3 series de 15 sentadillas y 12 lagartijas", xp: 45, gold: 30 },
-        { title: "Realizar 10 minutos de estiramiento de espalda, cuello y piernas", xp: 30, gold: 20 },
-        { title: "Completar rutina de abdomen (3 series de 20 repeticiones)", xp: 45, gold: 30 },
-        { title: "Subir y bajar escaleras o caminar a paso rápido 15 min", xp: 40, gold: 25 },
-        { title: "Día cero refrescos: solo agua natural durante todo el día", xp: 55, gold: 40 }
+        { title: "Salir a correr 40 minutos por la mañana a ritmo constante", xp: 85, gold: 60 },
+        { title: "Hacer 10 minutos de estiramiento muscular después de correr", xp: 35, gold: 25 },
+        { title: "Hacer 3 series de 15 sentadillas y 15 lagartijas", xp: 50, gold: 35 },
+        { title: "Completar rutina de abdomen y plancha (3 series)", xp: 45, gold: 30 },
+        { title: "Día cero refrescos: hidratación limpia todo el día", xp: 55, gold: 40 }
+      ],
+      spr: [
+        { title: "Leer un capítulo de Proverbios y meditar su enseñanza", xp: 45, gold: 30 },
+        { title: "Leer un Salmo y dedicar 5 minutos a orar al iniciar el día", xp: 40, gold: 25 },
+        { title: "Estudiar un pasaje de los Evangelios y anotar una enseñanza", xp: 50, gold: 35 },
+        { title: "Memorizar un versículo bíblico durante tu caminata/carrera", xp: 55, gold: 40 }
       ],
       agi: [
-        { title: "Tender la cama inmediatamente al levantarse", xp: 25, gold: 15 },
-        { title: "Limpiar y despejar por completo la mesa o escritorio de trabajo", xp: 35, gold: 25 },
-        { title: "Doblar y guardar toda la ropa limpia pendiente", xp: 40, gold: 30 },
-        { title: "Barrer o limpiar a fondo una zona de la casa", xp: 45, gold: 30 },
-        { title: "Sacar la basura y dejar ordenada la cocina antes de dormir", xp: 35, gold: 25 },
-        { title: "Dejar preparada la ropa y herramientas para mañana", xp: 30, gold: 20 }
+        { title: "Tender la cama apenas regreses de correr o al despertar", xp: 30, gold: 20 },
+        { title: "Dejar listos tus tenis y ropa deportiva para mañana", xp: 30, gold: 20 },
+        { title: "Limpiar y despejar tu mesa o área de trabajo", xp: 40, gold: 25 },
+        { title: "Ordenar tu cuarto y sacar pendientes de casa", xp: 45, gold: 30 }
       ],
       int: [
-        { title: "Avanzar 45 minutos sin distracciones en código o diseño", xp: 60, gold: 45 },
-        { title: "Revisar cuentas, ingresos y gastos del negocio del día", xp: 50, gold: 40 },
-        { title: "Terminar el pendiente más importante del día antes del mediodía", xp: 55, gold: 40 },
-        { title: "Diseñar una mejora o promoción para clientes", xp: 50, gold: 35 },
-        { title: "Planificar las 3 metas clave de trabajo para mañana", xp: 35, gold: 25 },
-        { title: "Aprender un truco o función nueva de programación/diseño", xp: 55, gold: 40 }
+        { title: "Avanzar 45 minutos concentrado en código o diseño digital", xp: 65, gold: 45 },
+        { title: "Revisar cuentas, pedidos y metas del negocio del día", xp: 55, gold: 40 },
+        { title: "Resolver el pendiente más importante del día antes de la tarde", xp: 60, gold: 45 },
+        { title: "Planificar las 3 prioridades clave para mañana", xp: 35, gold: 25 }
       ]
     };
 
-    /* CATÁLOGO DE INDUMENTARIA Y ARMAS (PROGRESIÓN DE LARGO PLAZO) */
     const OUTFITS_DB = [
-      { id: "hoodie_e", name: "Sudadera Azul Cazador E", reqLvl: 1, cost: 0, desc: "Atuendo inicial estilo Sung Jin-Woo." },
-      { id: "shinobi_d", name: "Traje Táctico Shinobi", reqLvl: 5, cost: 150, desc: "Ropa oscura ligera con bufanda ninja." },
-      { id: "kirito_c", name: "Abrigo de Medianoche (SAO)", reqLvl: 12, cost: 400, desc: "Gabardina negra del Espadachín Negro." },
-      { id: "samurai_b", name: "Armadura Ronin Cibernética", reqLvl: 25, cost: 950, desc: "Placas de carbono con bordes neón." },
-      { id: "monarch_s", name: "Armadura del Monarca Sombra", reqLvl: 50, cost: 2500, desc: "Indumentaria suprema con aura púrpura." }
+      { id: "runic_knight", name: "Armadura Rúnica Sombra", reqLvl: 1, cost: 0, desc: "Coraza negra con runas celestes y gabardina." },
+      { id: "shinobi_d", name: "Atuendo Asesino Nocturno", reqLvl: 6, cost: 200, desc: "Placas ligeras con cuello alto rojo." },
+      { id: "kirito_c", name: "Coat of Midnight (SAO)", reqLvl: 15, cost: 500, desc: "Abrigo largo de Espadachín Negro." },
+      { id: "monarch_s", name: "Armadura Monarca Supremo", reqLvl: 35, cost: 1600, desc: "Coraza púrpura imperial con aura de sombras." }
     ];
 
     const WEAPONS_DB = [
-      { id: "dagger_basic", name: "Colmillo de Kasaka", reqLvl: 1, cost: 0, desc: "Daga paralizante de cazador." },
-      { id: "katana_steel", name: "Katana Luz de Luna", reqLvl: 6, cost: 200, desc: "Espada samurai de corte rápido." },
-      { id: "elucidator", name: "Elucidator (Espada Negra)", reqLvl: 15, cost: 550, desc: "Espada pesada de jefe de piso." },
-      { id: "dual_blades", name: "Doble Empuñadura (SAO)", reqLvl: 28, cost: 1200, desc: "Elucidator + Dark Repulsor cruzadas." },
-      { id: "demon_daggers", name: "Dagas del Rey Demonio", reqLvl: 45, cost: 2200, desc: "Dagas duales con relámpagos morados." }
+      { id: "thunder_blade", name: "Espada Rúnica Relámpago", reqLvl: 1, cost: 0, desc: "Espada negra empuñada al frente con rayos." },
+      { id: "kasaka_fang", name: "Colmillo de Kasaka", reqLvl: 5, cost: 180, desc: "Daga curva con aura azul." },
+      { id: "dual_blades", name: "Doble Empuñadura (SAO)", reqLvl: 18, cost: 750, desc: "Elucidator y Dark Repulsor cruzadas." },
+      { id: "demon_king", name: "Espada Larga del Rey Demonio", reqLvl: 30, cost: 1500, desc: "Desata tormenta eléctrica púrpura." }
     ];
 
     const REAL_REWARDS = [
-      { id: "rew_game", name: "🎮 1 Hora de Videojuegos", cost: 120, desc: "Jugar sin culpa después de cumplir." },
-      { id: "rew_food", name: "🍔 Comida Favorita / Antojo", cost: 300, desc: "Date un gusto el fin de semana." },
-      { id: "rew_movie", name: "🎬 Noche de Película / Anime", cost: 180, desc: "Descanso merecido de Cazador." },
-      { id: "rew_free", name: "🛡️ Pase de Descanso Dominical", cost: 450, desc: "Restaura toda tu barra de HP al 100%." }
+      { id: "rew_game", name: "🎮 1 Hora de Videojuegos", cost: 120, desc: "Sesión libre bien ganada." },
+      { id: "rew_food", name: "🍔 Comida Favorita", cost: 300, desc: "Premio de fin de semana." },
+      { id: "rew_rest", name: "🛡️ Recuperación Total HP", cost: 400, desc: "Restaura tu vida al 100%." }
     ];
 
-    /* ESTADO DEL JUGADOR POR DEFECTO */
     const DEFAULT_STATE = {
       name: "GUTY",
       level: 1,
@@ -1042,56 +975,55 @@
       streak: 1,
       lastDate: new Date().toDateString(),
       waterCups: 0,
+      morningRunDone: false,
       statPoints: 0,
-      stats: { str: 10, spr: 10, agi: 10, int: 10 },
-      boss: { name: "IGRIS EL ROJO", hp: 500, maxHp: 500, shadows: 0 },
+      stats: { str: 12, spr: 10, agi: 11, int: 10 },
+      boss: { name: "IGRIS EL COMANDANTE ROJO", hp: 500, maxHp: 500, shadows: 0 },
+      customArtData: null,
       avatar: {
-        skin: "#d9a17c",
-        hairColor: "#141419",
+        skin: "#c98e6b",
+        hairColor: "#10131a",
         eyeColor: "#00e5ff",
-        hairStyle: "jinwoo",
-        beard: "goatee",
-        acc: "none",
-        outfit: "hoodie_e",
-        weapon: "dagger_basic"
+        hairStyle: "shadow_monarch",
+        beard: "none",
+        outfit: "runic_knight",
+        weapon: "thunder_blade"
       },
-      ownedOutfits: ["hoodie_e"],
-      ownedWeapons: ["dagger_basic"],
+      ownedOutfits: ["runic_knight"],
+      ownedWeapons: ["thunder_blade"],
       quests: []
     };
 
     let state = JSON.parse(localStorage.getItem("SHADOW_SYS_SAVE")) || DEFAULT_STATE;
+    // Asegurar compatibilidad si viene de la versión 1
+    if (!state.avatar.outfit || state.avatar.outfit === "hoodie_e") state.avatar.outfit = "runic_knight";
+    if (!state.avatar.weapon || state.avatar.weapon === "dagger_basic") state.avatar.weapon = "thunder_blade";
+    if (!state.ownedOutfits.includes("runic_knight")) state.ownedOutfits.push("runic_knight");
+    if (!state.ownedWeapons.includes("thunder_blade")) state.ownedWeapons.push("thunder_blade");
 
-    /* =========================================================================
-       MOTOR DE SONIDO SINTETIZADO (ESTILO SAO / SOLO LEVELING)
-       ========================================================================= */
+    /* SONIDOS WEB AUDIO */
     function playSysSound(type) {
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
+        osc.connect(gain); gain.connect(ctx.destination);
         const now = ctx.currentTime;
         if (type === "quest") {
           osc.type = "sine";
-          osc.frequency.setValueAtTime(587.33, now); // D5
-          osc.frequency.setValueAtTime(880, now + 0.09); // A5
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.setValueAtTime(880, now + 0.08);
           gain.gain.setValueAtTime(0.15, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-          osc.start(now);
-          osc.stop(now + 0.35);
-        } else if (type === "levelup") {
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+          osc.start(now); osc.stop(now + 0.3);
+        } else {
           osc.type = "triangle";
           osc.frequency.setValueAtTime(440, now);
-          osc.frequency.setValueAtTime(554.37, now + 0.1);
-          osc.frequency.setValueAtTime(659.25, now + 0.2);
-          osc.frequency.setValueAtTime(880, now + 0.3);
-          gain.gain.setValueAtTime(0.22, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.65);
-          osc.start(now);
-          osc.stop(now + 0.65);
+          osc.frequency.setValueAtTime(659.25, now + 0.12);
+          osc.frequency.setValueAtTime(880, now + 0.24);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+          osc.start(now); osc.stop(now + 0.6);
         }
       } catch (e) {}
     }
@@ -1103,171 +1035,260 @@
       setTimeout(() => t.classList.remove("show"), 2600);
     }
 
-    /* =========================================================================
-       FÓRMULA DE PROGRESIÓN EXPONENCIAL (PARA QUE DURE MESES / AÑOS)
-       ========================================================================= */
     function getRequiredXP(lvl) {
       return Math.floor(100 * Math.pow(lvl, 1.45));
     }
 
     function getRankInfo(lvl) {
-      if (lvl < 8) return { rank: "E", title: "Ronin Despierto" };
-      if (lvl < 18) return { rank: "D", title: "Rastreador Sombra" };
-      if (lvl < 32) return { rank: "C", title: "Espadachín Negro" };
-      if (lvl < 50) return { rank: "B", title: "Comandante de Asalto" };
-      if (lvl < 75) return { rank: "A", title: "Caballero de Sombras" };
+      if (lvl < 8) return { rank: "E", title: "Cazador en Despertar" };
+      if (lvl < 18) return { rank: "D", title: "Asesino Sombra" };
+      if (lvl < 32) return { rank: "C", title: "Espadachín Rúnico" };
+      if (lvl < 50) return { rank: "B", title: "Caballero de Asalto" };
+      if (lvl < 75) return { rank: "A", title: "Comandante Sombra" };
       return { rank: "S", title: "Monarca de las Sombras" };
     }
 
     /* =========================================================================
-       RENDERIZADO DEL AVATAR 2D DE CUERPO COMPLETO (CAPAS SVG)
+       RENDERIZADO DEL AVATAR MANHWA DE ALTA CALIDAD (ESTILO IMAGEN ADJUNTA)
        ========================================================================= */
     function renderFullAvatar() {
       const av = state.avatar;
+      const customImg = document.getElementById("custom-art-preview");
+      const svgEl = document.getElementById("main-avatar-svg");
+
+      if (state.customArtData) {
+        customImg.src = state.customArtData;
+        customImg.style.display = "block";
+        svgEl.style.display = "none";
+        return;
+      } else {
+        customImg.style.display = "none";
+        svgEl.style.display = "block";
+      }
 
       // 1. Piel
-      ["svg-head", "svg-neck", "svg-arm-l", "svg-arm-r", "svg-ear-l", "svg-ear-r"].forEach(id => {
+      ["svg-head", "svg-neck", "svg-ear-l", "svg-ear-r"].forEach(id => {
         document.getElementById(id).setAttribute("fill", av.skin);
       });
 
-      // 2. Ojos y Cejas
+      // 2. Ojos
       document.getElementById("svg-iris-l").setAttribute("fill", av.eyeColor);
       document.getElementById("svg-iris-r").setAttribute("fill", av.eyeColor);
-      document.getElementById("svg-brow-l").setAttribute("stroke", av.hairColor);
-      document.getElementById("svg-brow-r").setAttribute("stroke", av.hairColor);
 
-      // 3. Cabello según estilo elegido
+      // 3. Cabello Manhwa con mechones detallados y brillos (Como en la imagen)
       const hairEl = document.getElementById("svg-hair");
-      if (av.hairStyle === "jinwoo") {
-        hairEl.innerHTML = `<path d="M68 52 C65 25, 90 16, 102 18 C118 16, 135 26, 132 52 C128 38, 120 35, 114 44 L110 34 L102 46 L95 33 L87 46 L80 36 C75 40, 72 46, 68 52 Z" fill="${av.hairColor}"/>`;
-      } else if (av.hairStyle === "kirito") {
-        hairEl.innerHTML = `<path d="M66 58 C64 24, 88 15, 100 16 C115 15, 136 24, 134 58 L126 42 L118 54 L108 38 L100 52 L92 38 L82 54 L74 42 Z" fill="${av.hairColor}"/>`;
-      } else if (av.hairStyle === "samurai") {
+      if (av.hairStyle === "shadow_monarch") {
         hairEl.innerHTML = `
-          <circle cx="100" cy="14" r="9" fill="${av.hairColor}"/>
-          <path d="M70 50 C70 25, 130 25, 130 50 C122 36, 78 36, 70 50 Z" fill="${av.hairColor}"/>
+          <!-- Base de cabello puntiagudo en capas -->
+          <path d="M84 68 C72 45, 78 22, 95 16 L88 8 L112 12 L122 3 L135 12 L152 4 L158 15 L178 12 L170 25 C186 35, 184 55, 174 68
+                   L168 48 L158 64 L152 42 L140 68 L134 44 L122 70 L114 44 L102 64 L94 48 Z"
+                fill="${av.hairColor}" stroke="#05070c" stroke-width="1.5"/>
+          <!-- Mechones frontales cayendo sobre la frente y entrecejo -->
+          <path d="M104 38 Q98 58 105 72 L114 48 L127 74 L132 46 L144 72 L154 44" fill="${av.hairColor}" stroke="#05070c" stroke-width="1.2"/>
+          <!-- Luces cel-shading en el cabello -->
+          <path d="M105 24 L115 36 L125 22 L138 36 L152 24" stroke="rgba(255,255,255,0.18)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        `;
+      } else if (av.hairStyle === "kirito") {
+        hairEl.innerHTML = `
+          <path d="M82 78 C75 35, 95 12, 130 12 C165 12, 185 35, 178 78 L166 50 L154 74 L140 46 L130 72 L120 46 L106 74 L94 50 Z"
+                fill="${av.hairColor}" stroke="#05070c" stroke-width="1.5"/>
         `;
       } else {
-        hairEl.innerHTML = `<path d="M71 46 C71 24, 129 24, 129 46 C120 34, 80 34, 71 46 Z" fill="${av.hairColor}"/>`;
+        hairEl.innerHTML = `
+          <circle cx="130" cy="10" r="12" fill="${av.hairColor}"/>
+          <path d="M85 60 C82 25, 178 25, 175 60 L162 42 L130 58 L98 42 Z" fill="${av.hairColor}" stroke="#05070c" stroke-width="1.5"/>
+        `;
       }
 
       // 4. Barba
       const beardEl = document.getElementById("svg-beard");
       if (av.beard === "goatee") {
-        beardEl.innerHTML = `
-          <path d="M92 74 Q100 72 108 74" stroke="${av.hairColor}" stroke-width="2.2" fill="none"/>
-          <path d="M92 84 Q100 93 108 84 L104 89 L96 89 Z" fill="${av.hairColor}"/>
-        `;
+        beardEl.innerHTML = `<path d="M118 106 L130 116 L142 106 L136 114 L124 114 Z" fill="${av.hairColor}"/>`;
       } else if (av.beard === "full") {
-        beardEl.innerHTML = `<path d="M74 64 C74 84, 90 92, 100 93 C110 92, 126 84, 126 64 L122 64 C120 79, 110 85, 100 85 C90 85, 80 79, 78 64 Z" fill="${av.hairColor}" opacity="0.9"/>`;
+        beardEl.innerHTML = `<path d="M92 80 L108 106 L130 116 L152 106 L168 80 L162 78 L148 100 L130 108 L112 100 L98 78 Z" fill="${av.hairColor}" opacity="0.88"/>`;
       } else {
         beardEl.innerHTML = "";
       }
 
-      // 5. Accesorios faciales
-      const accEl = document.getElementById("svg-accessory");
-      if (av.acc === "mask") {
-        accEl.innerHTML = `<path d="M73 63 Q100 58 127 63 C125 79, 114 89, 100 91 C86 89, 75 79, 73 63 Z" fill="#111625" stroke="#00e5ff" stroke-width="1.2"/>`;
-      } else if (av.acc === "glasses") {
-        accEl.innerHTML = `
-          <rect x="77" y="53" width="19" height="10" rx="2" fill="rgba(0,229,255,0.2)" stroke="#00e5ff" stroke-width="1.8"/>
-          <rect x="104" y="53" width="19" height="10" rx="2" fill="rgba(0,229,255,0.2)" stroke="#00e5ff" stroke-width="1.8"/>
-          <line x1="96" y1="57" x2="104" y2="57" stroke="#00e5ff" stroke-width="1.8"/>
-        `;
-      } else if (av.acc === "scar") {
-        accEl.innerHTML = `<line x1="83" y1="49" x2="89" y2="68" stroke="#c9184a" stroke-width="2"/>`;
-      } else {
-        accEl.innerHTML = "";
-      }
-
-      // 6. Ropa / Armadura
+      // 5. Armadura con Cuello Alto, Hombreras Metálicas y Runas Brillantes (Idéntica a la imagen)
       const outfitEl = document.getElementById("svg-outfit");
-      const capeEl = document.getElementById("svg-cape");
-      capeEl.innerHTML = "";
+      let runeColor = av.outfit === "monarch_s" ? "#9d4edd" : av.outfit === "shinobi_d" ? "#ff2a5f" : "#00e5ff";
 
-      if (av.outfit === "hoodie_e") {
-        outfitEl.innerHTML = `
-          <path d="M66 96 L134 96 L128 178 L72 178 Z" fill="#1d3557" stroke="#457b9d" stroke-width="1.5"/>
-          <line x1="100" y1="96" x2="100" y2="178" stroke="#e63946" stroke-width="2"/>
-          <path d="M55 98 L70 96 L68 152 L55 150 Z" fill="#1d3557"/>
-          <path d="M130 96 L145 98 L145 150 L132 152 Z" fill="#1d3557"/>
-        `;
-      } else if (av.outfit === "shinobi_d") {
-        outfitEl.innerHTML = `
-          <path d="M66 96 L134 96 L126 178 L74 178 Z" fill="#121624" stroke="#00e5ff" stroke-width="1.2"/>
-          <path d="M72 96 L128 145 M128 96 L72 145" stroke="#2b3556" stroke-width="3"/>
-          <path d="M80 90 Q100 102 120 90 L126 104 Q100 112 74 104 Z" fill="#d90429"/>
-        `;
-      } else if (av.outfit === "kirito_c") {
-        outfitEl.innerHTML = `
-          <path d="M64 96 L136 96 L142 215 L114 215 L108 165 L92 165 L86 215 L58 215 Z" fill="#0b0d14" stroke="#adb5bd" stroke-width="1.5"/>
-          <path d="M74 96 L94 135 L106 135 L126 96" fill="none" stroke="#e9ecef" stroke-width="2"/>
-          <rect x="74" y="148" width="52" height="8" fill="#212529" stroke="#adb5bd" stroke-width="1"/>
-        `;
-      } else if (av.outfit === "samurai_b") {
-        outfitEl.innerHTML = `
-          <path d="M56 94 L144 94 L132 180 L68 180 Z" fill="#101828" stroke="#00e5ff" stroke-width="2"/>
-          <polygon points="50,94 74,92 68,118 48,112" fill="#1d2d44" stroke="#00e5ff" stroke-width="1.5"/>
-          <polygon points="150,94 126,92 132,118 152,112" fill="#1d2d44" stroke="#00e5ff" stroke-width="1.5"/>
-          <line x1="78" y1="120" x2="122" y2="120" stroke="#00e5ff" stroke-width="2.5"/>
-          <line x1="82" y1="138" x2="118" y2="138" stroke="#00e5ff" stroke-width="2.5"/>
-        `;
-      } else if (av.outfit === "monarch_s") {
-        capeEl.innerHTML = `<path d="M62 96 L138 96 L158 232 L42 232 Z" fill="rgba(114, 9, 183, 0.45)" stroke="#9d4edd" stroke-width="1.5"/>`;
-        outfitEl.innerHTML = `
-          <path d="M54 92 L146 92 L134 185 L66 185 Z" fill="url(#shadowArmorGrad)" stroke="#9d4edd" stroke-width="2"/>
-          <polygon points="44,88 76,92 66,120 40,108" fill="#10002b" stroke="#00e5ff" stroke-width="1.8"/>
-          <polygon points="156,88 124,92 134,120 160,108" fill="#10002b" stroke="#00e5ff" stroke-width="1.8"/>
-          <polygon points="100,105 114,130 100,160 86,130" fill="#9d4edd" opacity="0.8"/>
+      outfitEl.innerHTML = `
+        <!-- Cuello alto de gabardina oscura -->
+        <path d="M72 102 L98 88 L108 135 L152 135 L162 88 L188 102 L176 150 L84 150 Z" fill="#121826" stroke="#2c3a57" stroke-width="1.5"/>
+        
+        <!-- Pechera de placas en V con líneas neón -->
+        <path d="M65 135 L195 135 L182 295 L78 295 Z" fill="url(#armorDark)" stroke="#2b3954" stroke-width="1.5"/>
+        
+        <!-- Collar Rúnico en V (Como en la imagen) -->
+        <path d="M95 125 L130 162 L165 125 L156 120 L130 148 L104 120 Z" fill="#182236" stroke="${runeColor}" stroke-width="1.5"/>
+        <!-- Runas brillantes en el cuello -->
+        <path d="M106 132 L112 138 M116 140 L120 145 M144 140 L140 145 M152 132 L148 138" stroke="${runeColor}" stroke-width="2" filter="url(#neonGlow)"/>
+
+        <!-- Placas pectorales anguladas con luz cian -->
+        <path d="M85 160 L130 192 L175 160 L168 205 L130 228 L92 205 Z" fill="url(#armorMetal)" stroke="#3e5175" stroke-width="1.2"/>
+        <path d="M96 172 L130 196 L164 172" fill="none" stroke="${runeColor}" stroke-width="2" filter="url(#neonGlow)"/>
+        <path d="M104 212 L130 232 L156 212" fill="none" stroke="${runeColor}" stroke-width="1.5"/>
+
+        <!-- Hombrera Izquierda Metálica (Pauldron) -->
+        <path d="M32 148 C35 115, 68 112, 88 128 L76 185 C52 182, 34 168, 32 148 Z" fill="url(#armorMetal)" stroke="#4a608a" stroke-width="1.8"/>
+        <path d="M45 142 L68 152 L55 168" fill="none" stroke="${runeColor}" stroke-width="2" filter="url(#neonGlow)"/>
+
+        <!-- Hombrera Derecha Metálica con Símbolo Rúnico -->
+        <path d="M228 148 C225 115, 192 112, 172 128 L184 185 C208 182, 226 168, 228 148 Z" fill="url(#armorMetal)" stroke="#4a608a" stroke-width="1.8"/>
+        <path d="M202 138 L212 145 L204 154 L214 160 L204 168" fill="none" stroke="${runeColor}" stroke-width="2.2" filter="url(#neonGlow)"/>
+
+        <!-- Mangas y Brazales -->
+        <path d="M36 180 L75 182 L68 275 L26 268 Z" fill="#0d1321" stroke="#283652" stroke-width="1.2"/>
+        <path d="M224 180 L185 182 L198 265 L238 255 Z" fill="#0d1321" stroke="#283652" stroke-width="1.2"/>
+      `;
+
+      // 6. Brazo en Primer Plano Empuñando la Espada con Relámpagos (Pose exacta de tu imagen)
+      const fgWeapon = document.getElementById("svg-foreground-weapon");
+      const backW = document.getElementById("svg-back-weapons");
+      backW.innerHTML = "";
+
+      if (av.weapon === "dual_blades") {
+        backW.innerHTML = `
+          <line x1="35" y1="25" x2="215" y2="250" stroke="#00e5ff" stroke-width="6" stroke-linecap="round"/>
+          <line x1="225" y1="25" x2="45" y2="250" stroke="#80ffdb" stroke-width="6" stroke-linecap="round"/>
         `;
       }
 
-      // 7. Armas
-      const handWeapon = document.getElementById("svg-hand-weapon");
-      const backWeapon = document.getElementById("svg-back-weapons");
-      handWeapon.innerHTML = "";
-      backWeapon.innerHTML = "";
+      let bladeGlowColor = av.weapon === "demon_king" ? "#9d4edd" : "#00e5ff";
 
-      if (av.weapon === "dagger_basic") {
-        handWeapon.innerHTML = `<path d="M138 158 L168 135 L162 148 L142 165 Z" fill="#00e5ff" stroke="#fff" stroke-width="1"/>`;
-      } else if (av.weapon === "katana_steel") {
-        handWeapon.innerHTML = `
-          <line x1="136" y1="162" x2="188" y2="95" stroke="#e2f1ff" stroke-width="4" stroke-linecap="round"/>
-          <line x1="136" y1="162" x2="188" y2="95" stroke="#00e5ff" stroke-width="1.5"/>
-        `;
-      } else if (av.weapon === "elucidator") {
-        handWeapon.innerHTML = `
-          <polygon points="135,160 185,82 191,88 142,165" fill="#111" stroke="#00e5ff" stroke-width="2"/>
-        `;
-      } else if (av.weapon === "dual_blades") {
-        backWeapon.innerHTML = `
-          <line x1="40" y1="35" x2="155" y2="195" stroke="url(#bladeGlow)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="160" y1="35" x2="45" y2="195" stroke="url(#darkRepulsor)" stroke-width="6" stroke-linecap="round"/>
-        `;
-        handWeapon.innerHTML = `
-          <polygon points="135,160 186,85 191,90 140,165" fill="#111" stroke="#00e5ff" stroke-width="2"/>
-          <polygon points="65,160 14,85 9,90 60,165" fill="#80ffdb" stroke="#00b4d8" stroke-width="2"/>
-        `;
-      } else if (av.weapon === "demon_daggers") {
-        handWeapon.innerHTML = `
-          <path d="M134 156 L178 122 L166 150 L140 166 Z" fill="#9d4edd" stroke="#00e5ff" stroke-width="1.8"/>
-          <path d="M66 156 L22 122 L34 150 L60 166 Z" fill="#9d4edd" stroke="#00e5ff" stroke-width="1.8"/>
-        `;
-      }
+      fgWeapon.innerHTML = `
+        <!-- Pomo y Empuñadura Diagonal (De arriba-izquierda hacia abajo-derecha) -->
+        <polygon points="12,185 26,192 20,202 6,192" fill="#485d87" stroke="${bladeGlowColor}" stroke-width="1.2"/>
+        <line x1="22" y1="194" x2="95" y2="242" stroke="#182030" stroke-width="12" stroke-linecap="round"/>
+        <line x1="22" y1="194" x2="95" y2="242" stroke="#3c4e70" stroke-width="10" stroke-dasharray="6,6"/>
 
-      // 8. Aura según Nivel
-      const auraEl = document.getElementById("avatar-aura");
-      auraEl.className = "aura-effect";
-      if (state.level >= 25 || av.outfit === "monarch_s") {
-        auraEl.classList.add("aura-monarch");
-      } else if (state.level >= 5) {
-        auraEl.classList.add("aura-blue");
-      }
+        <!-- Guardia de la Espada Rúnica -->
+        <path d="M82 262 L112 222 L125 245 L95 270 Z" fill="#232f46" stroke="${bladeGlowColor}" stroke-width="1.5"/>
+
+        <!-- Hoja Ancha Negra con Núcleo Brillante -->
+        <polygon points="108,242 255,315 255,330 96,262" fill="#090d16" stroke="#48cae4" stroke-width="2"/>
+        <polygon points="118,252 245,318 235,322 114,258" fill="${bladeGlowColor}" filter="url(#neonGlow)"/>
+
+        <!-- Relámpagos sobre la hoja -->
+        <polyline points="110,248 135,242 148,268 178,262 195,292 230,295" fill="none" stroke="#ffffff" stroke-width="2" filter="url(#neonGlow)"/>
+
+        <!-- Brazalete Metálico y Mano Enguantada Sosteniendo el Mango (Como en la imagen) -->
+        <path d="M108 228 L175 245 L165 282 L98 258 Z" fill="url(#armorMetal)" stroke="${bladeGlowColor}" stroke-width="1.5"/>
+        <!-- Nudillos del guante táctico -->
+        <rect x="74" y="218" width="38" height="28" rx="6" transform="rotate(28 90 230)" fill="#101520" stroke="#3a4b6e" stroke-width="1.5"/>
+        <!-- Dedos enguantados con piel visible en las uniones -->
+        <circle cx="75" cy="232" r="5" fill="${av.skin}"/>
+        <circle cx="84" cy="238" r="5" fill="${av.skin}"/>
+        <circle cx="94" cy="244" r="5" fill="${av.skin}"/>
+      `;
     }
 
     /* =========================================================================
-       ESCÁNER BIOMÉTRICO DE FOTO REAL A AVATAR
+       MOTOR DE PARTÍCULAS DE SOMBRA, BRASAS Y RELÁMPAGOS EN CANVAS
        ========================================================================= */
+    const fxCanvas = document.getElementById("fx-canvas");
+    const fxCtx = fxCanvas.getContext("2d");
+    let particles = [];
+
+    for (let i = 0; i < 28; i++) {
+      particles.push({
+        x: Math.random() * 320,
+        y: Math.random() * 365,
+        size: Math.random() * 4 + 1.5,
+        speedY: -(Math.random() * 1.2 + 0.4),
+        speedX: (Math.random() - 0.5) * 0.8,
+        type: i % 4 === 0 ? "ember" : i % 3 === 0 ? "spark" : "shadow"
+      });
+    }
+
+    function animateStageFX() {
+      fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+
+      particles.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        if (p.y < -10) {
+          p.y = 370;
+          p.x = Math.random() * 320;
+        }
+
+        fxCtx.beginPath();
+        if (p.type === "shadow") {
+          // Cenizas negras flotantes (como en la imagen)
+          fxCtx.fillStyle = "rgba(8, 10, 18, 0.85)";
+          fxCtx.arc(p.x, p.y, p.size * 1.3, 0, Math.PI * 2);
+        } else if (p.type === "spark") {
+          // Chispas azules de maná
+          fxCtx.fillStyle = "#00e5ff";
+          fxCtx.shadowBlur = 8;
+          fxCtx.shadowColor = "#00e5ff";
+          fxCtx.arc(p.x, p.y, p.size * 0.7, 0, Math.PI * 2);
+        } else {
+          // Brasas naranjas/púrpuras
+          fxCtx.fillStyle = "#ff9e00";
+          fxCtx.shadowBlur = 6;
+          fxCtx.shadowColor = "#ff5400";
+          fxCtx.arc(p.x, p.y, p.size * 0.6, 0, Math.PI * 2);
+        }
+        fxCtx.fill();
+        fxCtx.shadowBlur = 0;
+      });
+
+      // Relámpago aleatorio ocasional
+      if (Math.random() < 0.04) {
+        fxCtx.strokeStyle = "rgba(0, 229, 255, 0.85)";
+        fxCtx.lineWidth = 2;
+        fxCtx.beginPath();
+        let lx = 60 + Math.random() * 200;
+        let ly = 200 + Math.random() * 120;
+        fxCtx.moveTo(lx, ly);
+        for (let s = 0; s < 4; s++) {
+          lx += (Math.random() - 0.5) * 35;
+          ly += (Math.random() - 0.5) * 35;
+          fxCtx.lineTo(lx, ly);
+        }
+        fxCtx.stroke();
+      }
+
+      requestAnimationFrame(animateStageFX);
+    }
+
+    /* =========================================================================
+       SUBIR ILUSTRACIÓN ANIME DIRECTA O ESCANEAR FOTO
+       ========================================================================= */
+    function uploadCustomAnimeArt(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        // Comprimir en canvas para no saturar localStorage
+        const img = new Image();
+        img.onload = function() {
+          const c = document.createElement("canvas");
+          c.width = 480;
+          c.height = 580;
+          const ctx = c.getContext("2d");
+          ctx.drawImage(img, 0, 0, c.width, c.height);
+          state.customArtData = c.toDataURL("image/jpeg", 0.82);
+          saveAndRefresh();
+          playSysSound("levelup");
+          showToast("⚡ ¡Arte Anime aplicado con efectos en vivo!");
+          switchTab("hunter");
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearCustomAnimeArt() {
+      state.customArtData = null;
+      saveAndRefresh();
+      showToast("🥷 Avatar Modular Activado.");
+      switchTab("hunter");
+    }
+
     function rgbToHex(r, g, b) {
       return "#" + [r, g, b].map(x => Math.max(0, Math.min(255, Math.round(x))).toString(16).padStart(2, "0")).join("");
     }
@@ -1275,7 +1296,6 @@
     function scanUserPhoto(event) {
       const file = event.target.files[0];
       if (!file) return;
-
       const reader = new FileReader();
       reader.onload = function(e) {
         const img = new Image();
@@ -1283,32 +1303,17 @@
           const canvas = document.getElementById("scanner-canvas");
           const ctx = canvas.getContext("2d");
           ctx.drawImage(img, 0, 0, 120, 120);
-
-          // Muestra central del rostro (tono de piel)
           const skinData = ctx.getImageData(45, 45, 30, 30).data;
-          let rS = 0, gS = 0, bS = 0, countS = 0;
+          let rS = 0, gS = 0, bS = 0, cS = 0;
           for (let i = 0; i < skinData.length; i += 4) {
-            rS += skinData[i]; gS += skinData[i+1]; bS += skinData[i+2]; countS++;
+            rS += skinData[i]; gS += skinData[i+1]; bS += skinData[i+2]; cS++;
           }
-          const skinHex = rgbToHex(rS/countS, gS/countS, bS/countS);
-
-          // Muestra superior (cabello)
-          const hairData = ctx.getImageData(45, 8, 30, 18).data;
-          let rH = 0, gH = 0, bH = 0, countH = 0;
-          for (let i = 0; i < hairData.length; i += 4) {
-            rH += hairData[i]; gH += hairData[i+1]; bH += hairData[i+2]; countH++;
-          }
-          const hairHex = rgbToHex(rH/countH, gH/countH, bH/countH);
-
-          state.avatar.skin = skinHex;
-          state.avatar.hairColor = hairHex;
-
-          document.getElementById("cfg-skin").value = skinHex;
-          document.getElementById("cfg-hair-color").value = hairHex;
-
+          state.avatar.skin = rgbToHex(rS/cS, gS/cS, bS/cS);
+          document.getElementById("cfg-skin").value = state.avatar.skin;
+          state.customArtData = null;
           saveAndRefresh();
           playSysSound("levelup");
-          showToast("🧬 ¡ADN Escaneado! Tu Avatar ha sido reconstruido.");
+          showToast("🧬 Rasgos aplicados al Cazador.");
           switchTab("hunter");
         };
         img.src = e.target.result;
@@ -1323,18 +1328,68 @@
       state.avatar.eyeColor = document.getElementById("cfg-eye-color").value;
       state.avatar.hairStyle = document.getElementById("cfg-hair-style").value;
       state.avatar.beard = document.getElementById("cfg-beard").value;
-      state.avatar.acc = document.getElementById("cfg-acc").value;
       saveAndRefresh();
     }
 
     /* =========================================================================
-       SISTEMA DE MISIONES AUTOMÁTICAS (ORÁCULO) Y PERSONALIZADAS
+       CRONÓMETRO Y MISIÓN DE CARRERA MATUTINA DE 40 MINUTOS
+       ========================================================================= */
+    let runSecondsLeft = 40 * 60;
+    let runInterval = null;
+
+    function toggleRunTimer() {
+      const btn = document.getElementById("btn-run-timer");
+      if (runInterval) {
+        clearInterval(runInterval);
+        runInterval = null;
+        btn.innerText = "▶️ Continuar Carrera";
+      } else {
+        btn.innerText = "⏸️ Pausar";
+        runInterval = setInterval(() => {
+          if (runSecondsLeft > 0) {
+            runSecondsLeft--;
+            const m = String(Math.floor(runSecondsLeft / 60)).padStart(2, "0");
+            const s = String(runSecondsLeft % 60).padStart(2, "0");
+            document.getElementById("run-timer-ui").innerText = `${m}:${s}`;
+          } else {
+            clearInterval(runInterval);
+            runInterval = null;
+            completeMorningRun();
+          }
+        }, 1000);
+      }
+    }
+
+    function completeMorningRun() {
+      if (state.morningRunDone) {
+        showToast("🏃‍♂️ ¡Ya registraste tus 40 minutos de carrera hoy!");
+        return;
+      }
+      state.morningRunDone = true;
+      state.xp += 85;
+      state.gold += 60;
+      state.stats.str += 1;
+      state.stats.agi += 1;
+      state.boss.hp = Math.max(0, state.boss.hp - 95);
+      if (state.boss.hp === 0) {
+        state.boss.shadows += 1;
+        state.boss.maxHp += 250;
+        state.boss.hp = state.boss.maxHp;
+      }
+      checkLevelUp();
+      playSysSound("levelup");
+      saveAndRefresh();
+      showToast("🔥 ¡40 Minutos de Carrera Completados! +85 XP, +1 STR, +1 AGI");
+    }
+
+    /* =========================================================================
+       ORÁCULO Y MISIONES
        ========================================================================= */
     function generateDailyOracleQuests() {
-      const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      const pick = arr => arr[Math.floor(Math.random() * arr.length)];
       const cats = ["spr", "str", "agi", "int"];
-      const generated = cats.map((cat, idx) => {
-        const item = pickRandom(ORACLE_POOL[cat]);
+      state.quests = cats.map((cat, idx) => {
+        const item = pick(ORACLE_POOL[cat]);
         return {
           id: "q_" + Date.now() + "_" + idx,
           cat: cat,
@@ -1344,50 +1399,40 @@
           done: false
         };
       });
-
-      // Conserva las personalizadas no completadas y suma las del Oráculo
-      state.quests = generated;
       saveAndRefresh();
       playSysSound("quest");
-      showToast("⚡ El Sistema ha asignado nuevas misiones para hoy.");
+      showToast("⚡ Misiones del día actualizadas.");
     }
 
     function rerollSingleQuest(id) {
       const q = state.quests.find(x => x.id === id);
       if (!q || q.done) return;
-      const pool = ORACLE_POOL[q.cat] || ORACLE_POOL.spr;
+      const pool = ORACLE_POOL[q.cat] || ORACLE_POOL.str;
       const picked = pool[Math.floor(Math.random() * pool.length)];
       q.title = picked.title;
       q.xp = picked.xp;
       q.gold = picked.gold;
       saveAndRefresh();
-      showToast("🎲 Misión rotada por el Oráculo.");
     }
 
     function completeQuest(id) {
       const q = state.quests.find(x => x.id === id);
       if (!q || q.done) return;
-
       q.done = true;
-      const shadowBonus = 1 + (state.boss.shadows * 0.05);
-      const gainedXp = Math.round(q.xp * shadowBonus);
-      const gainedGold = q.gold + Math.floor(state.stats.int * 0.5);
-
-      state.xp += gainedXp;
-      state.gold += gainedGold;
+      const bonus = 1 + (state.boss.shadows * 0.05);
+      state.xp += Math.round(q.xp * bonus);
+      state.gold += q.gold;
       state.stats[q.cat] = (state.stats[q.cat] || 10) + 1;
 
-      // Daño al Jefe de Mazmorra
-      const dmg = 35 + (state.stats.str * 2);
+      const dmg = 40 + (state.stats.str * 2);
       state.boss.hp = Math.max(0, state.boss.hp - dmg);
       if (state.boss.hp === 0) {
         state.boss.shadows += 1;
         state.boss.maxHp += 250;
         state.boss.hp = state.boss.maxHp;
         state.gold += 200;
-        showToast("🔮 ¡SURGE (ARISE)! Has extraído una nueva Sombra (+5% XP permanente).");
+        showToast("🔮 ¡SURGE (ARISE)! Sombra extraída (+5% XP permanente).");
       }
-
       checkLevelUp();
       playSysSound("quest");
       saveAndRefresh();
@@ -1400,16 +1445,12 @@
 
     function drinkWater() {
       if (state.waterCups >= 8) {
-        showToast("💧 ¡Meta de 2 Litros completada hoy!");
+        showToast("💧 ¡Meta de 2L completada hoy!");
         return;
       }
       state.waterCups += 1;
-      state.xp += 10;
+      state.xp += 12;
       state.gold += 5;
-      if (state.waterCups === 8) {
-        state.stats.str += 1;
-        showToast("💧 ¡2 Litros completados! +1 Fuerza y Bono XP.");
-      }
       checkLevelUp();
       playSysSound("quest");
       saveAndRefresh();
@@ -1424,183 +1465,126 @@
         state.maxHp += 15;
         state.hp = state.maxHp;
         playSysSound("levelup");
-        showToast(`⚡ ¡SUBISTE AL NIVEL ${state.level}! (+3 Puntos de Habilidad)`);
+        showToast(`⚡ ¡NIVEL ${state.level} ALCANZADO! (+3 Puntos)`);
         req = getRequiredXP(state.level);
       }
     }
 
-    function spendStat(statKey) {
-      if (state.statPoints <= 0) {
-        showToast("Sube de nivel para obtener más puntos.");
-        return;
-      }
+    function spendStat(k) {
+      if (state.statPoints <= 0) return showToast("Sube de nivel para ganar puntos.");
       state.statPoints -= 1;
-      state.stats[statKey] += 1;
+      state.stats[k] += 1;
       saveAndRefresh();
     }
 
-    /* =========================================================================
-       MODAL DE CREACIÓN DE MISIONES PROPIAS
-       ========================================================================= */
-    function openQuestModal() {
-      document.getElementById("quest-modal").classList.add("open");
-    }
-
-    function closeQuestModal() {
-      document.getElementById("quest-modal").classList.remove("open");
-    }
+    function openQuestModal() { document.getElementById("quest-modal").classList.add("open"); }
+    function closeQuestModal() { document.getElementById("quest-modal").classList.remove("open"); }
 
     function saveCustomQuest() {
       const title = document.getElementById("new-q-title").value.trim();
       const cat = document.getElementById("new-q-cat").value;
       const diff = document.getElementById("new-q-diff").value;
       if (!title) return;
-
-      const diffTable = {
-        E: { xp: 25, gold: 15 },
-        D: { xp: 45, gold: 30 },
-        C: { xp: 75, gold: 55 },
-        B: { xp: 120, gold: 90 },
-        A: { xp: 200, gold: 150 }
-      };
-
+      const table = { E:{xp:25,gold:15}, D:{xp:45,gold:30}, C:{xp:75,gold:55}, B:{xp:120,gold:90}, A:{xp:200,gold:150} };
       state.quests.unshift({
-        id: "custom_" + Date.now(),
-        cat: cat,
-        title: title,
-        xp: diffTable[diff].xp,
-        gold: diffTable[diff].gold,
+        id: "c_" + Date.now(),
+        cat, title,
+        xp: table[diff].xp,
+        gold: table[diff].gold,
         done: false
       });
-
       document.getElementById("new-q-title").value = "";
       closeQuestModal();
       saveAndRefresh();
-      showToast("✅ Misión agregada a tu lista.");
     }
 
-    /* =========================================================================
-       ARMERÍA Y TIENDA DE RECOMPENSAS
-       ========================================================================= */
     function equipOrBuyOutfit(id) {
       const item = OUTFITS_DB.find(x => x.id === id);
       if (!item) return;
-
       if (state.ownedOutfits.includes(id)) {
         state.avatar.outfit = id;
         saveAndRefresh();
-        showToast(`🧥 Equipado: ${item.name}`);
-        return;
+        return showToast(`🧥 Equipado: ${item.name}`);
       }
-
-      if (state.level < item.reqLvl) {
-        showToast(`🔒 Requiere Nivel ${item.reqLvl}`);
-        return;
-      }
-      if (state.gold < item.cost) {
-        showToast("🪙 No tienes suficiente Col (Oro).");
-        return;
-      }
-
+      if (state.level < item.reqLvl) return showToast(`🔒 Requiere Nivel ${item.reqLvl}`);
+      if (state.gold < item.cost) return showToast("🪙 Oro insuficiente.");
       state.gold -= item.cost;
       state.ownedOutfits.push(id);
       state.avatar.outfit = id;
-      playSysSound("levelup");
       saveAndRefresh();
-      showToast(`✨ ¡Desbloqueaste ${item.name}!`);
     }
 
     function equipOrBuyWeapon(id) {
       const item = WEAPONS_DB.find(x => x.id === id);
       if (!item) return;
-
       if (state.ownedWeapons.includes(id)) {
         state.avatar.weapon = id;
         saveAndRefresh();
-        showToast(`🗡️ Equipada: ${item.name}`);
-        return;
+        return showToast(`🗡️ Equipada: ${item.name}`);
       }
-
-      if (state.level < item.reqLvl) {
-        showToast(`🔒 Requiere Nivel ${item.reqLvl}`);
-        return;
-      }
-      if (state.gold < item.cost) {
-        showToast("🪙 No tienes suficiente Col (Oro).");
-        return;
-      }
-
+      if (state.level < item.reqLvl) return showToast(`🔒 Requiere Nivel ${item.reqLvl}`);
+      if (state.gold < item.cost) return showToast("🪙 Oro insuficiente.");
       state.gold -= item.cost;
       state.ownedWeapons.push(id);
       state.avatar.weapon = id;
-      playSysSound("levelup");
       saveAndRefresh();
-      showToast(`⚔️ ¡Arma obtenida: ${item.name}!`);
     }
 
     function buyRealReward(id) {
       const r = REAL_REWARDS.find(x => x.id === id);
-      if (!r) return;
-      if (state.gold < r.cost) {
-        showToast("🪙 Cumple más misiones para pagar esta recompensa.");
-        return;
-      }
+      if (!r || state.gold < r.cost) return showToast("🪙 Cumple más misiones primero.");
       state.gold -= r.cost;
-      if (id === "rew_free") state.hp = state.maxHp;
-      playSysSound("levelup");
+      if (id === "rew_rest") state.hp = state.maxHp;
       saveAndRefresh();
-      showToast(`🎉 Recompensa canjeada: ${r.name}`);
+      showToast(`🎉 Canjeado: ${r.name}`);
     }
 
-    /* =========================================================================
-       ACTUALIZACIÓN GENERAL DE INTERFAZ Y GUARDADO
-       ========================================================================= */
     function saveAndRefresh() {
       localStorage.setItem("SHADOW_SYS_SAVE", JSON.stringify(state));
 
-      const rankObj = getRankInfo(state.level);
-      document.getElementById("ui-rank").innerText = rankObj.rank;
+      const rObj = getRankInfo(state.level);
+      document.getElementById("ui-rank").innerText = rObj.rank;
       document.getElementById("ui-name").innerText = state.name;
       document.getElementById("ui-level").innerText = state.level;
-      document.getElementById("ui-title").innerText = rankObj.title;
+      document.getElementById("ui-title").innerText = rObj.title;
       document.getElementById("ui-gold").innerText = state.gold;
       document.getElementById("ui-streak").innerText = state.streak;
 
-      // Barras HP y XP
       const hpPct = Math.max(0, Math.min(100, (state.hp / state.maxHp) * 100));
-      const hpBar = document.getElementById("ui-hp-bar");
-      hpBar.style.width = hpPct + "%";
-      hpBar.style.background = hpPct > 50 ? "var(--hp-green)" : hpPct > 20 ? "var(--hp-yellow)" : "var(--hp-red)";
+      document.getElementById("ui-hp-bar").style.width = hpPct + "%";
       document.getElementById("ui-hp-text").innerText = `${state.hp} / ${state.maxHp}`;
 
       const reqXp = getRequiredXP(state.level);
-      const xpPct = Math.min(100, (state.xp / reqXp) * 100);
-      document.getElementById("ui-xp-bar").style.width = xpPct + "%";
+      document.getElementById("ui-xp-bar").style.width = Math.min(100, (state.xp / reqXp) * 100) + "%";
       document.getElementById("ui-xp-text").innerText = `${state.xp} / ${reqXp} XP`;
 
-      // Estadísticas
       document.getElementById("ui-stat-points").innerText = state.statPoints;
       document.getElementById("stat-str").innerText = state.stats.str;
       document.getElementById("stat-spr").innerText = state.stats.spr;
       document.getElementById("stat-agi").innerText = state.stats.agi;
       document.getElementById("stat-int").innerText = state.stats.int;
 
-      // Jefe
-      const bossPct = (state.boss.hp / state.boss.maxHp) * 100;
-      document.getElementById("boss-hp-bar").style.width = bossPct + "%";
+      document.getElementById("boss-hp-bar").style.width = ((state.boss.hp / state.boss.maxHp) * 100) + "%";
       document.getElementById("boss-hp-text").innerText = `${state.boss.hp} / ${state.boss.maxHp} HP`;
       document.getElementById("ui-shadows-count").innerText = state.boss.shadows;
       document.getElementById("ui-shadow-bonus").innerText = state.boss.shadows * 5;
 
-      // Agua
+      // Estado del botón de carrera matutina
+      const runBtn = document.getElementById("btn-run-done");
+      if (state.morningRunDone) {
+        runBtn.innerText = "✅ 40 min Completados Hoy";
+        runBtn.style.opacity = "0.5";
+      } else {
+        runBtn.innerText = "✔ Ya corrí mis 40 min";
+        runBtn.style.opacity = "1";
+      }
+
       let drops = "";
       for (let i = 0; i < 8; i++) drops += i < state.waterCups ? "💧" : "⚪";
       document.getElementById("ui-water-cups").innerText = drops;
 
-      // Lista de misiones
-      const catNames = { spr: "📖 Espíritu", str: "💪 Ejercicio", agi: "🏠 Casa", int: "💼 Trabajo" };
-      const qList = document.getElementById("quests-container");
-      qList.innerHTML = state.quests.map(q => `
+      const catNames = { spr: "📖 Espíritu", str: "🏃‍♂️ Físico", agi: "🏠 Orden", int: "💼 Trabajo" };
+      document.getElementById("quests-container").innerHTML = state.quests.map(q => `
         <div class="quest-item ${q.done ? 'done' : ''}">
           <div class="quest-info">
             <div class="quest-tags">
@@ -1610,48 +1594,41 @@
             <div class="quest-title">${q.title}</div>
           </div>
           <div class="quest-actions">
-            ${!q.done ? `<button class="btn-icon" onclick="rerollSingleQuest('${q.id}')" title="Rotar misión">🎲</button>` : ''}
+            ${!q.done ? `<button class="btn-icon" onclick="rerollSingleQuest('${q.id}')">🎲</button>` : ''}
             ${!q.done ? `<button class="btn-complete" onclick="completeQuest('${q.id}')">LISTO</button>` : `<span style="color:var(--hp-green); font-weight:900;">✔</span>`}
             <button class="btn-icon" style="color:#ff2a5f;" onclick="deleteQuest('${q.id}')">✕</button>
           </div>
         </div>
       `).join("");
 
-      // Renderizar Armería
       document.getElementById("outfits-grid").innerHTML = OUTFITS_DB.map(o => {
         const owned = state.ownedOutfits.includes(o.id);
-        const equipped = state.avatar.outfit === o.id;
+        const eq = state.avatar.outfit === o.id;
         return `
-          <div class="gear-card ${equipped ? 'equipped' : ''} ${(!owned && state.level < o.reqLvl) ? 'locked' : ''}">
-            <div style="font-weight:800; font-size:0.85rem;">${o.name}</div>
-            <div style="font-size:0.72rem; color:var(--text-muted);">${o.desc}</div>
-            <div style="font-size:0.72rem; color:var(--neon-blue);">Req: Nivel ${o.reqLvl}</div>
-            <button class="btn-sys" onclick="equipOrBuyOutfit('${o.id}')">
-              ${equipped ? 'EQUIPADO' : owned ? 'Equipar' : `Comprar (${o.cost} Col)`}
-            </button>
-          </div>
-        `;
+          <div class="gear-card ${eq ? 'equipped' : ''} ${(!owned && state.level < o.reqLvl) ? 'locked' : ''}">
+            <div style="font-weight:800; font-size:0.84rem;">${o.name}</div>
+            <div style="font-size:0.7rem; color:var(--text-muted);">${o.desc}</div>
+            <div style="font-size:0.7rem; color:var(--neon-blue);">Nivel ${o.reqLvl}</div>
+            <button class="btn-sys" onclick="equipOrBuyOutfit('${o.id}')">${eq ? 'EQUIPADO' : owned ? 'Equipar' : `${o.cost} Col`}</button>
+          </div>`;
       }).join("");
 
       document.getElementById("weapons-grid").innerHTML = WEAPONS_DB.map(w => {
         const owned = state.ownedWeapons.includes(w.id);
-        const equipped = state.avatar.weapon === w.id;
+        const eq = state.avatar.weapon === w.id;
         return `
-          <div class="gear-card ${equipped ? 'equipped' : ''} ${(!owned && state.level < w.reqLvl) ? 'locked' : ''}">
-            <div style="font-weight:800; font-size:0.85rem;">${w.name}</div>
-            <div style="font-size:0.72rem; color:var(--text-muted);">${w.desc}</div>
-            <div style="font-size:0.72rem; color:var(--neon-blue);">Req: Nivel ${w.reqLvl}</div>
-            <button class="btn-sys" onclick="equipOrBuyWeapon('${w.id}')">
-              ${equipped ? 'EQUIPADA' : owned ? 'Equipar' : `Comprar (${w.cost} Col)`}
-            </button>
-          </div>
-        `;
+          <div class="gear-card ${eq ? 'equipped' : ''} ${(!owned && state.level < w.reqLvl) ? 'locked' : ''}">
+            <div style="font-weight:800; font-size:0.84rem;">${w.name}</div>
+            <div style="font-size:0.7rem; color:var(--text-muted);">${w.desc}</div>
+            <div style="font-size:0.7rem; color:var(--neon-blue);">Nivel ${w.reqLvl}</div>
+            <button class="btn-sys" onclick="equipOrBuyWeapon('${w.id}')">${eq ? 'EQUIPADA' : owned ? 'Equipar' : `${w.cost} Col`}</button>
+          </div>`;
       }).join("");
 
       document.getElementById("rewards-grid").innerHTML = REAL_REWARDS.map(r => `
         <div class="gear-card">
-          <div style="font-weight:800; font-size:0.85rem;">${r.name}</div>
-          <div style="font-size:0.72rem; color:var(--text-muted);">${r.desc}</div>
+          <div style="font-weight:800; font-size:0.84rem;">${r.name}</div>
+          <div style="font-size:0.7rem; color:var(--text-muted);">${r.desc}</div>
           <button class="btn-sys gold" onclick="buyRealReward('${r.id}')">Canjear (${r.cost} Col)</button>
         </div>
       `).join("");
@@ -1668,7 +1645,6 @@
       document.getElementById("nav-" + tab).classList.add("active");
     }
 
-    /* RESPALDO Y RESTAURACIÓN JSON */
     function exportSaveData() {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
       const a = document.createElement("a");
@@ -1687,42 +1663,43 @@
         try {
           state = JSON.parse(e.target.result);
           saveAndRefresh();
-          showToast("✅ Partida restaurada con éxito.");
-        } catch (err) {
-          showToast("❌ Archivo inválido.");
-        }
+          showToast("✅ Progreso restaurado.");
+        } catch (err) { showToast("❌ Archivo inválido."); }
       };
       reader.readAsText(file);
     }
 
-    /* INICIALIZACIÓN Y CONTROL DE CAMBIO DE DÍA */
     window.onload = function() {
       const today = new Date().toDateString();
       if (state.lastDate !== today) {
         const unfinished = state.quests.filter(q => !q.done).length;
-        if (unfinished > 0) {
-          state.hp = Math.max(10, state.hp - (unfinished * 10));
-        } else {
-          state.streak += 1;
-        }
+        if (unfinished > 0) state.hp = Math.max(10, state.hp - (unfinished * 10));
+        else state.streak += 1;
         state.waterCups = 0;
+        state.morningRunDone = false;
         state.lastDate = today;
         generateDailyOracleQuests();
       } else if (state.quests.length === 0) {
         generateDailyOracleQuests();
       }
 
-      // Sincronizar inputs de ADN
-      document.getElementById("cfg-name").value = state.name;
-      document.getElementById("cfg-skin").value = state.avatar.skin;
-      document.getElementById("cfg-hair-color").value = state.avatar.hairColor;
-      document.getElementById("cfg-eye-color").value = state.avatar.eyeColor;
-      document.getElementById("cfg-hair-style").value = state.avatar.hairStyle;
-      document.getElementById("cfg-beard").value = state.avatar.beard;
-      document.getElementById("cfg-acc").value = state.avatar.acc;
-
       saveAndRefresh();
+      animateStageFX();
+
+      // Blindaje de memoria persistente en Android
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist();
+      }
     };
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        localStorage.setItem("SHADOW_SYS_SAVE", JSON.stringify(state));
+      }
+    });
+    document.addEventListener("pause", () => {
+      localStorage.setItem("SHADOW_SYS_SAVE", JSON.stringify(state));
+    }, false);
   </script>
 </body>
 </html>
