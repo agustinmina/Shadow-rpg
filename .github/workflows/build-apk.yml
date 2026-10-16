@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1. Descargar codigo del repositorio
+      - name: 1. Descargar repositorio
         uses: actions/checkout@v4
 
       - name: 2. Configurar Node.js 20
@@ -24,37 +24,22 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: 4. Configurar Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: 5. Instalar Build Tools y SDK 34
+      - name: 4. Instalar Build Tools en el SDK nativo de GitHub
         run: |
-          yes | sdkmanager --licenses || true
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
-      - name: 6. Crear estructura Cordova automatica y compilar APK
+      - name: 5. Crear proyecto Cordova limpio y compilar APK
         run: |
           npm install -g cordova
-          mkdir -p /tmp/app_source
-          if [ -f "www/index.html" ]; then
-            cp -r www/* /tmp/app_source/
-          elif [ -f "index.html" ]; then
-            cp index.html /tmp/app_source/
-          else
-            echo "ERROR: No se encontro index.html ni www/index.html"
-            exit 1
-          fi
-
-          cordova create shadow_build com.gutylog.shadowsystem "Shadow System RPG" --no-telemetry
-          cd shadow_build
-          rm -rf www/*
-          cp -r /tmp/app_source/* www/
-
+          cordova create app_temp com.gutylog.shadowsystem "Shadow System RPG" --no-telemetry
+          cp -r www/* app_temp/www/
+          cd app_temp
           cordova platform add android@13.0.0 --no-telemetry
           cordova build android --debug --no-telemetry
 
-      - name: 7. Subir APK listo para descargar
+      - name: 6. Subir APK listo para descargar
         uses: actions/upload-artifact@v4
         with:
           name: Shadow-System-RPG-APK
-          path: shadow_build/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          path: app_temp/platforms/android/app/build/outputs/apk/debug/app-debug.apk
